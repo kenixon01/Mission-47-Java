@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Manual - Commands</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nova+Mono|VT323">
+    <script src="function.js"></script>
+</head>
+<body>
+<header>
+    <a href="index.html">
+        <div class="header" id="sub-page-header">
+            <h1>COMMANDS</h1>
+        </div>
+    </a>
+</header>
+<nav>
+    <a href="map.html"><button class="sub-nav-button" onmouseup="button_up(this,nav_button_light)" onmousedown="button_down(this,nav_button_dark)" id="map-img-sub">MAP</button></a>
+    <a href="keys.html"><button class="sub-nav-button" onmouseup="button_up(this,nav_button_light)" onmousedown="button_down(this,nav_button_dark)" id="command-img-sub">KEYS</button></a>
+    <a href="about.html"><button class="sub-nav-button" onmouseup="button_up(this,nav_button_light)" onmousedown="button_down(this,nav_button_dark)" id="about-img-sub">ABOUT</button></a>
+</nav>
+<main class="sub-page-main">
+    <div class="title">
+        <h2>LIST OF COMMANDS</h2><hr>
+        <p>Click each command for more information</p>
+    </div>
+    <div class="help">
+        <h3>HELP</h3>
+        <button class="info-button" id="help" value="Displays list of commands" onclick="show_info_window(this)" onmouseup="button_up(this,help_button_light)" onmousedown="button_down(this,help_button_dark)">HELP</button>
+    </div>
+    <div class="movement">
+        <h3>MOVEMENT</h3>
+        <button class="info-button" id="north" value="Moves character upwards" onclick="show_info_window(this)" onmouseup="button_up(this,movement_button_light)" onmousedown="button_down(this,movement_button_dark)">NORTH</button>
+        <button class="info-button" id="south" value="Moves character downwards" onclick="show_info_window(this)" onmouseup="button_up(this,movement_button_light)" onmousedown="button_down(this,movement_button_dark)">SOUTH</button>
+        <button class="info-button" id="east" value="Moves character rightwards" onclick="show_info_window(this)" onmouseup="button_up(this,movement_button_light)" onmousedown="button_down(this,movement_button_dark)">EAST</button>
+        <button class="info-button" id="west" value="Moves character leftwards" onclick="show_info_window(this)" onmouseup="button_up(this,movement_button_light)" onmousedown="button_down(this,movement_button_dark)">WEST</button>
+    </div>
+    <div class="interaction">
+        <h3>INTERACTION</h3>
+        <button class="info-button" id="grab" value="Character picks up item" onclick="show_info_window(this)" onmouseup="button_up(this,interaction_button_light)" onmousedown="button_down(this,interaction_button_dark)">GRAB</button>
+        <button class="info-button" id="use" value="Character uses item" onclick="show_info_window(this)" onmouseup="button_up(this,interaction_button_light)" onmousedown="button_down(this,interaction_button_dark)">USE</button>
+    </div>
+    <div class="information">
+        <h3>INFORMATION</h3>
+        <button class="info-button" id="location" value="Displays current room number" onclick="show_info_window(this)" onmouseup="button_up(this,information_button_light)" onmousedown="button_down(this,information_button_dark)">LOCATION</button>
+        <button class="info-button" id="exits" value="Displays possible entryways to current room" onclick="show_info_window(this)" onmouseup="button_up(this,information_button_light)" onmousedown="button_down(this,information_button_dark)">EXITS</button>
+    </div>
+    <div class="info-window" id="info">
+        <div id="close" onclick="hide_info_window()">&Cross;</div>
+        <div id="command"></div>
+        <div id="description"></div>
+    </div>
+</main>
+<footer>
+    <h4>Mission 47</h4>
+    <h5>Khamilah Nixon | Georgia Gwinnett College | <i>2022</i></h5>
+</footer>
+</body>
+</html>

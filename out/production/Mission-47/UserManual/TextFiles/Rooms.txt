@@ -1,0 +1,60 @@
+1
+Lunar Base
+You are orbiting the Aliiance Lunar Base around Earth's moon.  You see a fleet of ships entering and leaving
+the base, heading to Caldoni I, northwest of the base.  You hear a message on your ship's communicator.
+To your west lies an asteroid belt, east lies the Sun, and south lies Tilani patrol vessels.
+----
+EAST    2
+WEST    3
+SOUTH   6
+----
+2
+Asteroid Belt
+You are approaching the outer limits of the asteroid belt, which spans many kilometers in both directions.  You can
+see a tiny entity to the north, Caldoni I.
+To your east lies the lunar base and north lies Caldoni I.
+----
+EAST    1
+NORTH   4
+----
+3
+Solar Storm
+You have encountered a solar storm front approaching your port quarter.  The storm front is affecting your ship's
+integrity.
+To your west lies the lunar base and north lies Caldoni VII.
+----
+WEST    1
+NORTH   5
+----
+4
+Caldoni I
+You are inside Caldoni space, on the far side of the lush planet.  You see many Caldoni ships docking at the Caldoni
+base in orbit and Alliance ships leaving the space dock.
+To your east lies Caldoni VII and south lies an asteroid belt.
+----
+EAST    5
+SOUTH   2
+----
+5
+Caldoni VII Trader
+You approach a planet on the outskirts of Caldoni space, Caldoni VII, home to the most notable trader in the sector.
+You approach the trader's ship in orbit.
+To your west lies Caldoni I and south lies the Sun.
+----
+WEST    4
+SOUTH   5
+----
+6
+Tilani Patrol
+A Tilani patrol ship spotted you and is approaching your position.
+The patrol vessel overtook you.
+To your north lies the lunar base and south lies Tilani Prime.
+----
+NORTH   1
+SOUTH   7
+----
+7
+Tilani Prime
+You are approaching the Tilani homeworld.
+You cannot turn back...
+----

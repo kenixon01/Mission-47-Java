@@ -1,0 +1,22 @@
+TABLE OF ARTIFACTS
+Artifact        Size    Max Amount  Trade Input Amount  Trade Output    Size    Trade Output Amount Type
+Reminum-66      n/a     1           1                   Cloak           n/a     1                   Mission
+White Crystal   n/a     20          5                   Health Pack     Small   5                   Ship
+Cloak           n/a     1           0                   n/a             n/a     0                   Mission
+Health Pack     Small   4           5                   Health Pack     Medium  2                   Consumable
+Health Pack     Medium  3           4                   Health Pack     Large   1                   Consumable
+Health Pack     Large   2           5                   Health Pack     Mega    1                   Consumable
+Health Pack     Mega    1           0                   n/a             n/a     0                   Consumable
+----
+ITEM MESSAGES
+DEPLETED
+Item depleted. Removed from inventory
+----
+NOT FOUND
+Item not found.
+----
+CONSUMED
+You used the item.
+----
+GRAB
+You picked up the item.

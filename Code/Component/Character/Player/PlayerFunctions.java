@@ -51,7 +51,7 @@ public interface PlayerFunctions {
      */
 
     default void help() throws IOException {
-        String filePath = "UserManual/TextFiles/CommandsList.txt";
+        String filePath = "src/UserManual/TextFiles/CommandsList.txt";
         String fileName = filePath.substring(filePath.lastIndexOf("/"));
         try {
             BufferedReader buffer = new BufferedReader(new FileReader(filePath));

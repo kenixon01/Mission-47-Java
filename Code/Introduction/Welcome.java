@@ -46,7 +46,7 @@ public final class Welcome {
      * @throws IOException - If the file does not exist
      */
     public Welcome(String delimiter) throws IOException {
-        FILE = new BufferedReader(new FileReader("UserManual/TextFiles/GlobalMessages.txt"));
+        FILE = new BufferedReader(new FileReader("src/UserManual/TextFiles/GlobalMessages.txt"));
         PROLOGUE = new StringBuilder();
         INSTRUCTIONS = new StringBuilder();
         TITLE = new StringBuilder();

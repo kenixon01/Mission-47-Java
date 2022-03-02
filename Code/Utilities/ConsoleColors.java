@@ -2,7 +2,6 @@ package Code.Utilities;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
 import java.util.Arrays;
 
 /**
@@ -48,7 +47,7 @@ public final class ConsoleColors {
      * row of {@link #ANSI_COLOR_NAME}
      */
 
-    private @Nullable String checkColor(String color, String code) throws IllegalArgumentException {
+    private @Nullable String checkColor(String color,String code) throws IllegalArgumentException {
         for (int i = 0; i < ANSI_COLOR_NAME[0].length; i++) {
             if (ANSI_COLOR_NAME[0][i].equalsIgnoreCase(color)) {
                 if(code.equals("TXT")) return ANSI_COLOR_NAME[1][i];
@@ -78,7 +77,8 @@ public final class ConsoleColors {
         this.backgroundColor = checkColor(backgroundColor,"BG");
     }
 
-    public String colorString(String msg) {
+    @Contract(pure = true)
+    public @NotNull String colorString(String msg) {
         return (textColor != null ? textColor : "") +
                 (backgroundColor != null ? backgroundColor : "") +
                 msg + ANSI_RESET;

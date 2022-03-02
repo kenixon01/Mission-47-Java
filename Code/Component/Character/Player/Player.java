@@ -5,6 +5,8 @@ import Code.Component.Room.Room;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
+
 /**
  * The Player class represents the user's functionality.  All users in java
  * programs are implemented as an instance of this. Players are constant,

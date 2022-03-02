@@ -55,7 +55,7 @@ public class CreateGame {
     public CreateGame() {
         try {
             welcome = new Welcome("----");
-            roomsFile = new BufferedReader(new FileReader("UserManual/TextFiles/Rooms.txt"));
+            roomsFile = new BufferedReader(new FileReader("src/UserManual/TextFiles/Rooms.txt"));
         } catch (IOException ie) {
             ie.printStackTrace();
         }

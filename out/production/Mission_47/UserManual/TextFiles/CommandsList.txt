@@ -1,0 +1,35 @@
+Website:
+http://localhost:63342/Mission_47/UserManual/Website/index.html?_ijt=iib8tgobql5jn06t9ojpmrvcs3
+
+Type "help" to view a list of commands
+
+Movement Commands:
+Command             Description
+-------------------------------------------------------------------
+north               Moves character upwards
+south               Moves character downwards
+east                Moves character rightwards
+west                Moves character leftwards
+
+Interaction Commands:
+Command             Description
+------------------------------------------------------------------
+drop <item-name>    Player drops item in current room
+pickup <item-name>  Player picks up item in current room
+inspect <item-name> Displays item description in inventory
+trade <item-name>   Player trades item ONLY if trader in current room
+
+Information Commands:
+Command             Description
+------------------------------------------------------------------
+location            Displays current room name and number
+exits               Displays possible entryways to current room
+inventory           Displays items currently stored in player's inventory
+explore             Display current room name and inventory, trader, and active puzzles
+
+Puzzle Commands:
+Command             Description
+------------------------------------------------------------------
+drill               Destroys asteroids
+hint                Displays puzzle hint
+solve <input>       Allows player to attempt to provide a puzzle answer

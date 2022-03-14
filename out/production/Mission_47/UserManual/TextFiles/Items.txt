@@ -1,0 +1,49 @@
+1
+Reminum-66
+a valuable radioactive isotope
+----
+2
+3
+----
+2
+White Crystal
+a white crystal used for ship repairs
+----
+2
+4
+----
+3
+Cloak
+a cloak of invisibility
+----
+5
+0
+----
+4
+Small Medkit
+a small medkit
+----
+1
+5
+----
+5
+Medium Medkit
+a medium medkit
+----
+3
+6
+----
+6
+Large Medkit
+a large medkit
+----
+5
+7
+----
+7
+Mega Medkit
+a mega medkit
+----
+5
+0
+----

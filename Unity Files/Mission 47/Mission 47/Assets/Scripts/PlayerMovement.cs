@@ -27,5 +27,5 @@ public class PlayerMovement : MonoBehaviour
             actualSpeed *= sprintMultiplier;
         }
         rb.MovePosition(transform.position + moveBy.normalized * actualSpeed * Time.deltaTime);
-    }
+    } 
 }

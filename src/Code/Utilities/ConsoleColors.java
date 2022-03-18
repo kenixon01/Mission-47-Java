@@ -115,13 +115,6 @@ public final class ConsoleColors {
     }
 
     /**
-     * Returns a String of text with the appended ANSI color code to change the text color
-     * @return a String with a varied color
-     */
-    public String textColor(String msg) {
-        return textColor + msg + ANSI_RESET;
-    }
-    /**
      * Method: toString
      * <p>Creates default message of the field values when object is called</p>
      * @return Summary of fields

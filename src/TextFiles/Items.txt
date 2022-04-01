@@ -7,7 +7,7 @@ a valuable radioactive isotope
 ----
 2
 White Crystal
-a white crystal used for ship repairs
+a white crystal
 ----
 2
 4
@@ -47,3 +47,9 @@ a mega medkit
 5
 0
 ----
+8
+Upgraded Turrets
+weapons
+----
+4
+0

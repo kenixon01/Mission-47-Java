@@ -28,7 +28,7 @@ import java.util.Random;
  *  The player class contains methods that pertain to user commands, such as moving
  *  north, south, east, and west, in relation to the current room.
  * @author Khamilah Nixon
- * @version 2.0
+ * @version 2.1
  * @since 1.0
  */
 
@@ -43,6 +43,8 @@ public final class Player extends Character {
      * The player's inventory
      */
     private Inventory inventory = new Inventory();
+
+    private Inventory equippedItems = new Inventory();
 
     /**
      * The game map
@@ -138,19 +140,41 @@ public final class Player extends Character {
     }
 
     public void equip(Item item) {
-
+        if(item != null) {
+            if(item.isEquippable()) {
+                equippedItems.add(item);
+                System.out.println("You equipped " + item.getName());
+            }
+            else {
+                System.out.println("You cannot equip " + item.getName());
+            }
+        }
+        else {
+            System.out.println("Item not found");
+        }
     }
 
     public void unequip(Item item) {
-
+        if(item != null && equippedItems.findItem(item.getId()) != null) {
+                equippedItems.remove(item);
+                System.out.println("You unequipped " + item.getName());
+        }
+        else {
+            System.out.println("Item not found");
+        }
     }
 
     public void heal(Item item) {
-
-    }
-
-    public void repair(Item item) {
-
+        if(item != null && item.getHp() > 0) {
+            if(getCurrentHealth() < getMAX_HEALTH()) {
+                gainHealth(Math.min(getMAX_HEALTH() - getCurrentHealth(), item.getHp()));
+                inventory.remove(item);
+                System.out.println(item.getName() + " gave you " + item.getHp() + " HP");
+            }
+            else {
+                System.out.println("Your HP is full");
+            }
+        }
     }
 
     public void attack() {

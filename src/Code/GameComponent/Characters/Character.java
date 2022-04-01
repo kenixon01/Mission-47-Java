@@ -21,48 +21,54 @@ public class Character extends GameComponent {
     /**
      * This value is used to storage the character's health value.
      */
-    private int health;
+    private int currentHealth;
 
+    private final int MAX_HEALTH;
     /**
      * Initializes a Character object, whereas, its attributes are read through a file
      * @param file - The file containing the Character's data
      * @param name - The name of the character
      * @param textColor - The character's desired text color
-     * @param health - THe character's initial health
+     * @param maxHealth - THe character's initial currentHealth
      * @throws IOException - Occurs if the file does not exist
      * @see Code.Utilities.ConsoleColors
      */
-    public Character(BufferedReader file, String name, String textColor, int health) throws IOException {
+    public Character(BufferedReader file, String name, String textColor, int maxHealth) throws IOException {
         super(file, name, textColor);
-        this.health = health;
+        this.MAX_HEALTH = maxHealth;
+        currentHealth = MAX_HEALTH;
     }
 
     /**
      * Initializes a Character object
      * @param name - The name of the character
      * @param textColor - The character's desired text color
-     * @param health - The character's initial health
+     * @param maxHealth - The character's initial currentHealth
      * @see Code.Utilities.ConsoleColors
      */
-    public Character(String name, String textColor, int health) {
+    public Character(String name, String textColor, int maxHealth) {
         super(name, textColor);
-        this.health = health;
+        this.MAX_HEALTH = maxHealth;
+    }
+
+    public int getMAX_HEALTH() {
+        return MAX_HEALTH;
     }
 
     /**
      * Allows other classes to change the character's health
-     * @param health - Character's current health
+     * @param currentHealth - Character's current health
      */
-    public void setHealth(int health) {
-        this.health = health;
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
     }
 
     /**
      * Allows other classes to access the character's health value
      * @return The character's current health
      */
-    public int getHealth() {
-        return health;
+    public int getCurrentHealth() {
+        return currentHealth;
     }
 
     /**
@@ -70,7 +76,7 @@ public class Character extends GameComponent {
      * @param val - Amount of health the character will lose
      */
     public void loseHealth(int val) {
-        health -= val;
+        currentHealth -= val;
     }
 
     /**
@@ -78,13 +84,13 @@ public class Character extends GameComponent {
      * @param val - Amount of health the character will gain
      */
     public void gainHealth(int val) {
-        health += val;
+        currentHealth += val;
     }
 
     @Override
     public String toString() {
         return "Character{" +
-                "health=" + health +
+                "health=" + currentHealth +
                 '}';
     }
 }

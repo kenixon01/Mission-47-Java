@@ -141,7 +141,6 @@ public class CreateGame {
      * A list of these commands are defined in <a href="../UserManual/TextFiles/CommandsList.txt">CommandsList</a>
      * @return - a boolean that verifies if the player entered a valid command
      * @throws IOException - If any of the game files do not exist
-     * @see PlayerFunctions#help()
      * @see Room
      * @see Player
      */
@@ -170,7 +169,9 @@ public class CreateGame {
                     System.out.println("Nothing to solve.");
                 }
             }
-            case "trade" -> player.trade(info);
+            case "trade" -> {
+                player.trade(info);
+            }
             default -> validCommand = false;
         }
         if(!validCommand) {

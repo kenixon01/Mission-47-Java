@@ -13,10 +13,11 @@ public class Trader extends GameComponent {
     private Inventory inventory = new Inventory();
     private int roomID;
     private ArrayList<Integer> itemID;
+
     /**
      * Creates a GameComponent object using a file and text color
      *
-     * @param file      - The GameComponent's associated file
+     * @param file - The GameComponent's associated file
      * @throws IOException - If the file does not exist
      */
     public Trader(BufferedReader file) throws IOException {
@@ -47,7 +48,7 @@ public class Trader extends GameComponent {
 
     private ArrayList<Integer> readItemID() throws IOException {
         String line = getFile().readLine();
-        if(!line.isBlank()) {
+        if (!line.isBlank()) {
             String[] str = line.split(" ");
             ArrayList<Integer> intArray = new ArrayList<>();
             for (String s : str) {
@@ -58,11 +59,11 @@ public class Trader extends GameComponent {
         return null;
     }
 
-    public Item trade(Item item) {
-        if(item != null) {
-            Item output = inventory.findItem(item.getTradeOutputID());
-            System.out.println(getConsoleColors().colorString("You got yourself a deal."));
-            System.out.println(item.getName() + " has been dropped.");
+    public Item trade(Item itemInput) {
+        if (itemInput != null) {
+            Item output = inventory.findItem(itemInput.getTradeOutputID());
+            System.out.println(getConsoleColors().colorString("All trades are final."));
+            System.out.println(itemInput.getName() + " has been dropped.");
             return output;
         }
         System.out.println(getConsoleColors().colorString("Are you trying to cheat me?"));
@@ -74,6 +75,7 @@ public class Trader extends GameComponent {
         return "Trader{" +
                 "inventory=" + inventory +
                 ", roomID=" + roomID +
+                ", itemID=" + itemID +
                 '}';
     }
 }

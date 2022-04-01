@@ -7,11 +7,17 @@ import java.util.Arrays;
 /**
  * Creates an item
  * @since 1.5
- * @version 1.2
+ * @version 1.3
  * @author Khamilah Nixon
  */
 public class Item extends GameComponent {
+    private int hp;
 
+    private int damage;
+
+    private int shieldHP;
+
+    private boolean isEquippable;
     /**
      * Specific information about an item
      */
@@ -40,6 +46,22 @@ public class Item extends GameComponent {
         tradeOutputID = readTradeOutput();
     }
 
+    public int getHp() {
+        return hp;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public int getShieldHP() {
+        return shieldHP;
+    }
+
+    public boolean isEquippable() {
+        return isEquippable;
+    }
+
     public int getRoomID() {
         return roomID;
     }
@@ -60,8 +82,8 @@ public class Item extends GameComponent {
      * This method will read the trade output from a text file and return the value
      * @return - Trade Output ID
      */
-    private int readTradeOutput() {
-        return Integer.parseInt(info[1]);
+    private int readTradeOutput() throws IOException {
+        return Integer.parseInt(info[0]);
     }
 
     @Override

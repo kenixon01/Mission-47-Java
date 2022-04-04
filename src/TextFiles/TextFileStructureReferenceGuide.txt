@@ -70,3 +70,16 @@ TRADER DESCRIPTION          Description for trader
 ----
 ROOM ID                     Which room trader is located in
 # # # #                     List of any number of items in trader inventory, separated by a blank space
+
+
+
+Monster.txt:
+=====================================================================================
+MONSTER ID                  Monster identifier
+MONSTER NAME                Name of monster
+MONSTER DESCRIPTION         Description for monster
+----
+ROOM ID                     Which room item is located in
+ATTACK DAMAGE               Initial monster attack damage
+DAMAGE THRESHOLD            Value at the attack damage will double
+DEATH MESSAGE               Description that appears if the monster dies

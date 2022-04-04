@@ -1,4 +1,4 @@
-package Code.Component.Item;
+package Code.Component;
 
 import Code.Component.Component;
 

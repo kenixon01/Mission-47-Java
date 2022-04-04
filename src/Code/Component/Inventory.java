@@ -1,5 +1,4 @@
-package Code.Inventory;
-import Code.Component.Item.Item;
+package Code.Component;
 import Code.Utilities.ConsoleColors;
 
 import java.util.*;
@@ -11,7 +10,7 @@ import java.util.*;
  * @version 1.2
  * @author Khamilah Nixon
  */
-public class Inventory implements InventoryFunctions{
+public class Inventory {
 
     /**
      * Stores items in inventory
@@ -53,7 +52,6 @@ public class Inventory implements InventoryFunctions{
      * ArrayList holding the number of a particular item will increase by 1.
      * @param item - Desired item to add to the inventory
      */
-    @Override
     public void add(Item item) {
         if(item != null) {
             if(!items.containsKey(item.getId())) {
@@ -69,7 +67,6 @@ public class Inventory implements InventoryFunctions{
      * inventory.
      * @param item - Desired item to remove from the inventory
      */
-    @Override
     public void remove(Item item) {
         if(item != null) {
             if(items.containsKey(item.getId())) {
@@ -84,21 +81,11 @@ public class Inventory implements InventoryFunctions{
      * any null value in the inventory.
      * @param item - Desired item to inspect
      */
-    @Override
     public void inspect(Item item) {
         if(item != null) {
             System.out.println(item.getDescription());
         }
         System.out.println("Description not available");
-    }
-
-    /**
-     * Creates an iterator to allow methods within the Inventory class to easily
-     * iterate over the inventory items
-     * @return - An iterator of the inventory items
-     */
-    private Iterator<Map.Entry<Integer, ArrayList<Item>>> iterator() {
-        return items.entrySet().iterator();
     }
 
     /**
@@ -108,7 +95,6 @@ public class Inventory implements InventoryFunctions{
      * @param item - Desired item to find
      * @return - Located item
      */
-    @Override
     public Item findItem(String item) {
         Iterator<Map.Entry<Integer, ArrayList<Item>>>iterator = iterator();
         while (iterator.hasNext()) {
@@ -127,7 +113,6 @@ public class Inventory implements InventoryFunctions{
      * @param id - Desired item id to find
      * @return - Located item
      */
-    @Override
     public Item findItem(int id) {
         return items.get(id).get(0);
     }
@@ -136,7 +121,6 @@ public class Inventory implements InventoryFunctions{
      * This method will print an ordered list of each item in the inventory with the count of
      * every item.  If the inventory is empty, the method will print, "No available items."
      */
-    @Override
     public void showInventory() {
 
         StringBuilder msg = new StringBuilder();
@@ -167,6 +151,14 @@ public class Inventory implements InventoryFunctions{
         return txtColor + msg + txtColor;
     }
 
+    /**
+     * Creates an iterator to allow methods within the Inventory class to easily
+     * iterate over the inventory items
+     * @return - An iterator of the inventory items
+     */
+    private Iterator<Map.Entry<Integer, ArrayList<Item>>> iterator() {
+        return items.entrySet().iterator();
+    }
     @Override
     public String toString() {
         return "Inventory{" +

@@ -1,11 +1,4 @@
-package Code.Component.Room;
-
-import Code.Component.Character.NPC.Monster;
-import Code.Component.Character.NPC.Trader;
-import Code.Component.Component;
-import Code.Component.Puzzle.Puzzle;
-import Code.Inventory.Inventory;
-import org.jetbrains.annotations.NotNull;
+package Code.Component;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -96,6 +89,14 @@ public class Room extends Component implements Comparable<Room> {
 
     public void setTrader(Trader trader) {
         this.trader = trader;
+    }
+
+    public Monster getMonster() {
+        return monster;
+    }
+
+    public void setMonster(Monster monster) {
+        this.monster = monster;
     }
 
     public boolean isLocked() {

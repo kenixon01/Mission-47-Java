@@ -1,10 +1,6 @@
 package Code.Game;
 
-import Code.Component.Character.NPC.Trader;
-import Code.Component.Character.Player.Player;
-import Code.Component.Character.Player.PlayerFunctions;
-import Code.Component.Puzzle.Puzzle;
-import Code.Component.Room.Room;
+import Code.Component.*;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -70,7 +66,7 @@ public class CreateGame {
         if(input.nextLine() != null){
             gameMap.createMap();
             player = constructPlayer();
-            traverseGame();
+            displayRoomData();
         }
     }
 
@@ -87,20 +83,21 @@ public class CreateGame {
     }
 
     /**
-     * Allows the player to traverse the map by verifying the player's commands that they type in the console
+     * Displays current information about a room
      * @throws IOException - If the any game files ({@link Room},{@link Welcome}) do not exist
      * @see Welcome
      * @see Player
      * @see Room
      * @see #verifyCommands()
      */
-    private void traverseGame() throws IOException {
+    private void displayRoomData() throws IOException {
         while (true) {
             boolean validCommand = false;
             if(player.getCurrentRoom().isActive()) {
                 System.out.println(player.getCurrentRoom().roomData());
                 setPuzzleConditions();
                 setTraderConditions();
+                setMonsterConditions();
                 player.getCurrentRoom().setActive(false);
             }
             while (!validCommand) {
@@ -126,6 +123,19 @@ public class CreateGame {
         }
     }
 
+    private void setMonsterConditions() {
+        Monster monster = player.getCurrentRoom().getMonster();
+        if(monster != null) {
+            if(monster.getHealth() > 0) {
+                System.out.println(monster.getDescription());
+            }
+            else {
+                player.getCurrentRoom().setMonster(null);
+                System.out.println(monster.getDeathMsg());
+            }
+        }
+    }
+
     /**
      * Prints the trader description and inventory if a trader exists
      */
@@ -139,10 +149,9 @@ public class CreateGame {
 
     /**
      * Verifies if the player enters valid game commands.
-     * A list of these commands are defined in <a href="../UserManual/TextFiles/CommandsList.txt">CommandsList</a>
+     * A list of these commands are defined in <a href="src/TextFiles/CommandsList.txt">CommandsList</a>
      * @return - a boolean that verifies if the player entered a valid command
      * @throws IOException - If any of the game files do not exist
-     * @see PlayerFunctions#help()
      * @see Room
      * @see Player
      */

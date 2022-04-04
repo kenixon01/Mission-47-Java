@@ -1,4 +1,4 @@
-package Code.Component.Character;
+package Code.Component;
 
 import Code.Component.Component;
 
@@ -16,7 +16,7 @@ import java.io.IOException;
  * @author Khamilah Nixon
  */
 
-public class Character extends Component implements CharacterFunctions {
+public class Character extends Component {
 
     /**
      * This value is used to storage the character's health value.
@@ -26,15 +26,12 @@ public class Character extends Component implements CharacterFunctions {
     /**
      * Initializes a Character object, whereas, its attributes are read through a file
      * @param file - The file containing the Character's data
-     * @param name - The name of the character
      * @param textColor - The character's desired text color
-     * @param health - THe character's initial health
      * @throws IOException - Occurs if the file does not exist
      * @see Code.Utilities.ConsoleColors
      */
-    public Character(BufferedReader file, String name, String textColor, int health) throws IOException {
-        super(file, name, textColor);
-        this.health = health;
+    public Character(BufferedReader file, String textColor) throws IOException {
+        super(file, textColor);
     }
 
     /**
@@ -69,7 +66,6 @@ public class Character extends Component implements CharacterFunctions {
      * Allows the character to lose health by a given amount
      * @param val - Amount of health the character will lose
      */
-    @Override
     public void loseHealth(int val) {
         health -= val;
     }
@@ -78,7 +74,6 @@ public class Character extends Component implements CharacterFunctions {
      * Allows the character to gain health by a given amount
      * @param val - Amount of health the character will gain
      */
-    @Override
     public void gainHealth(int val) {
         health += val;
     }

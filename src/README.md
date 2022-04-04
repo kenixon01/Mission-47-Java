@@ -130,7 +130,7 @@ An online user manual is also provided via this link:
 <a href="http://localhost:63342/Mission_47/UserManual/Website/index.html?_ijt=iib8tgobql5jn06t9ojpmrvcs3">Click here</a>.
 
 <a href="http://localhost:63342/Mission_47/UserManual/Website/index.html?_ijt=iib8tgobql5jn06t9ojpmrvcs3">
-    <img alt="User Manual" src="UserManual/Website/Images/website.png" width="50%"/>
+    <img alt="User Manual" src="UserManual/Images/website.png" width="50%"/>
 </a>
 
 ## Visuals

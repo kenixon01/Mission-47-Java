@@ -1,12 +1,11 @@
-package Code.Component.Character.Player;
+package Code.Component;
 
-import Code.Component.Character.Character;
-import Code.Component.Item.Item;
-import Code.Component.Puzzle.Puzzle;
-import Code.Component.Room.Room;
 import Code.Game.GameMap;
-import Code.Inventory.Inventory;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Random;
 
 /**
@@ -29,7 +28,7 @@ import java.util.Random;
  * @since 1.0
  */
 
-public final class Player extends Character implements PlayerFunctions {
+public final class Player extends Character {
 
     /**
      * A reference storing the player's current location
@@ -67,7 +66,6 @@ public final class Player extends Character implements PlayerFunctions {
      * If applicable, moves the player to the room north of the current room
      * @param direction - The direction in which the player would like to move
      */
-    @Override
     public void move(String direction) {
         Room room = null;
         switch (direction.toLowerCase()) {
@@ -94,7 +92,6 @@ public final class Player extends Character implements PlayerFunctions {
      * is not null.
      * @param item - Desired item to add to inventory
      */
-    @Override
     public void pickup(Item item) {
         if(item != null) {
             currentRoom.getInventory().remove(item);
@@ -112,7 +109,6 @@ public final class Player extends Character implements PlayerFunctions {
      * not null
      * @param item - Desired item to remove from inventory
      */
-    @Override
     public void drop(Item item) {
         if(item != null) {
             currentRoom.getInventory().add(item);
@@ -128,7 +124,6 @@ public final class Player extends Character implements PlayerFunctions {
      * Allows player to view an item's description if that item is not null and is in their inventory
      * @param item - Desired item to inspect
      */
-    @Override
     public void inspect(Item item) {
         if(item != null) {
             inventory.inspect(item);
@@ -138,32 +133,26 @@ public final class Player extends Character implements PlayerFunctions {
         }
     }
 
-    @Override
     public void equip(Item item) {
 
     }
 
-    @Override
     public void unequip(Item item) {
 
     }
 
-    @Override
     public void heal(Item item) {
 
     }
 
-    @Override
     public void repair(Item item) {
 
     }
 
-    @Override
     public void attack() {
 
     }
 
-    @Override
     public void ignore() {
 
     }
@@ -171,7 +160,6 @@ public final class Player extends Character implements PlayerFunctions {
     /**
      * Allows a player to destroy asteroids for a puzzle if that puzzle is not null.
      */
-    @Override
     public void drill() {
         Puzzle puzzle = currentRoom.getPuzzle();
         int random = Math.abs(new Random().nextInt());
@@ -194,7 +182,6 @@ public final class Player extends Character implements PlayerFunctions {
      * Allows the player to access their inventory.
      * @see Inventory#showInventory()
      */
-    @Override
     public void inventory() {
         if(inventory.getItems().isEmpty()) {
             System.out.println(inventory.getConsoleColors().colorString("You didn't pickup any items yet"));
@@ -211,13 +198,13 @@ public final class Player extends Character implements PlayerFunctions {
      * inventory.  If a trader is in the room, the trade name will display.  If a puzzle exists, the puzzle name
      * will display.
      */
-    @Override
     public void explore() {
         System.out.println("Region: " + currentRoom.getName() + " (" + currentRoom.getId() + ") " +
                 (currentRoom.getTrader() != null ? "\nTrader: " + currentRoom.getTrader().getName() : "") +
                 (currentRoom.getPuzzle() != null && !currentRoom.getPuzzle().isSolved() ?
                         "\nActive Puzzle: " + currentRoom.getPuzzle().getName() :
                         "") +
+                (currentRoom.getMonster() != null ? "\nMonster: " + currentRoom.getMonster().getName() : "") +
                 "\nList of Available Items");
         Inventory roomInventory = currentRoom.getInventory();
         if(roomInventory.getItems().isEmpty()) {
@@ -233,7 +220,6 @@ public final class Player extends Character implements PlayerFunctions {
      * the respective output item for the trade
      * @param item - Desired item to trade
      */
-    @Override
     public void trade(String item) {
         if(currentRoom.getTrader() != null) {
             Item input = inventory.findItem(item);
@@ -247,7 +233,6 @@ public final class Player extends Character implements PlayerFunctions {
      * Allows a player to view the current puzzle's hint as long as that puzzle is not null and exists in the
      * current room
      */
-    @Override
     public void hint() {
         if(currentRoom.getPuzzle() != null) {
             System.out.println(currentRoom.getPuzzle().getHint());
@@ -256,7 +241,25 @@ public final class Player extends Character implements PlayerFunctions {
             System.out.println("Cannot locate puzzle in " + currentRoom.getName());
         }
     }
+    /**
+     * Displays a list of all player commands with their descriptions
+     * @throws IOException If the file does not exist
+     */
+    public void help() throws IOException {
+        String filePath = "src/UserManual/TextFiles/CommandsList.txt";
+        String fileName = filePath.substring(filePath.lastIndexOf("/"));
+        try {
+            BufferedReader buffer = new BufferedReader(new FileReader(filePath));
+            while(buffer.ready()) {
+                System.out.println(buffer.readLine());
+            }
+            buffer.close();
+        }
+        catch (FileNotFoundException ex) {
+            throw new FileNotFoundException(fileName + " not found at given file path: " + filePath);
+        }
 
+    }
     @Override
     public String toString() {
         return "Player{" +

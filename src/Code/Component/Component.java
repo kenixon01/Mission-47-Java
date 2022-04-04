@@ -24,7 +24,7 @@ import java.util.Arrays;
  * @version 1.2
  * @author Khamilah Nixon
  */
-public class Component implements ComponentFunctions {
+public class Component {
 
     /**
      * The component's name

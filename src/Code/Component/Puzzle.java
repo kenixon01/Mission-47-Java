@@ -1,10 +1,6 @@
-package Code.Component.Puzzle;
+package Code.Component;
 
-import Code.Component.Component;
-import Code.Component.Item.Item;
-import Code.Component.Room.Room;
 import Code.Game.GameMap;
-import Code.Inventory.Inventory;
 
 import java.io.BufferedReader;
 import java.io.IOException;

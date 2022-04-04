@@ -1,14 +1,10 @@
-package Code.Component.Character.NPC;
-
-import Code.Component.Component;
-import Code.Component.Item.Item;
-import Code.Inventory.Inventory;
+package Code.Component;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Trader extends Component {
+public class Trader extends Character {
 
     private Inventory inventory = new Inventory();
     private int roomID;

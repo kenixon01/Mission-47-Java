@@ -5,12 +5,21 @@ Your first officer provided me with the locations of the 3 key Alliance military
 I've already ordered the execution of your 50 crew members.  On my command, I will give them a quick death...
 ----
 7
-200
-80
-2
+400
+50
+100
 The infamous Tilani warlord's reign has finally come to an end.  You were able to rescue all but 1 of your crew,
 your first officer, who died on the journey back to Alliance space.
 
 2 months later....
 Rumors begin to brew about a new uprising sprouting from the ashes of Jacoo's regime on Tilani Prime.  A new
 Alliance report shows that there was a recent attack on one of the key Alliance bases bordering Tilani space...
+----
+2
+Tilani Patrol Ship
+Alliance vessel, you illegally crossed into Tilani territory!  Leave immediately or prepare to be fired upon.
+----
+6
+200
+20
+80

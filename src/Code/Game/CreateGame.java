@@ -3,6 +3,7 @@ package Code.Game;
 import Code.Component.*;
 
 import java.io.IOException;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -64,6 +65,9 @@ public class CreateGame {
         System.out.println(welcome.getInstructions());
         System.out.println(welcome.getPrologue());
         if(input.nextLine() != null){
+            if(!gameMap.getMap().isEmpty()) {
+                gameMap = new GameMap();
+            }
             gameMap.createMap();
             player = constructPlayer();
             displayRoomData();
@@ -126,13 +130,11 @@ public class CreateGame {
     private void setMonsterConditions() {
         Monster monster = player.getCurrentRoom().getMonster();
         if(monster != null) {
-            if(monster.getHealth() > 0) {
-                System.out.println(monster.getDescription());
-            }
-            else {
-                player.getCurrentRoom().setMonster(null);
-                System.out.println(monster.getDeathMsg());
-            }
+            System.out.println(monster.getName() + " is here...");
+                monster.setAttackDmg(monster.getInitialDamage());
+                if(new Random().nextInt() * 100 < monster.getThreshold()) {
+                    monster.setAttackDmg(monster.getAttackDmg() * 2);
+                }
         }
     }
 
@@ -147,6 +149,114 @@ public class CreateGame {
         }
     }
 
+    private boolean isRoomCommand(String command, String info) throws IOException {
+        boolean validCommand = true;
+        switch (command) {
+            case "location" -> System.out.println(player.getName() + " you are in sector " + player.getCurrentRoom().getId() + ", " + player.getCurrentRoom().getName());
+            case "exits" -> System.out.println(player.getCurrentRoom().getExits());
+            case "help" -> player.help();
+            case "east", "north", "west", "south" -> player.move(command);
+            case "explore" -> player.explore();
+            default -> validCommand = false;
+        }
+        return validCommand;
+    }
+
+    private boolean isInventoryCommand(String command, String info) throws IOException {
+        boolean validCommand = true;
+        switch (command) {
+            case "inventory" -> player.inventory();
+            case "drop" -> player.drop(player.getStoredItems().findItem(info));
+            case "pickup" -> player.pickup(player.getCurrentRoom().getInventory().findItem(info));
+            case "inspect" -> player.inspect(player.getStoredItems().findItem(info));
+            case "equip" -> player.equip(player.getEquippedItems().findItem(info));
+            case "unequip" -> player.unequip(player.getEquippedItems().findItem(info));
+            case "heal" -> player.heal(player.getStoredItems().findItem(info));
+            default -> validCommand = false;
+        }
+        return validCommand;
+    }
+
+    private boolean isTraderCommand(String command, String info) throws IOException {
+        boolean validCommand = true;
+        if ("trade".equals(command)) {
+            player.trade(info);
+        } else {
+            validCommand = false;
+        }
+        return validCommand;
+    }
+
+    private boolean isPuzzleCommand(String command, String info) throws IOException {
+        boolean validCommand = true;
+        switch (command) {
+            case "drill" -> player.drill();
+            case "hint" -> player.hint();
+            case "solve" -> {
+                if(player.getCurrentRoom().getPuzzle() != null) {
+                    player.getCurrentRoom().getPuzzle().solve(info, gameMap);
+                }
+                else {
+                    System.out.println("Nothing to solve.");
+                }
+            }
+            default -> validCommand = false;
+        }
+        return validCommand;
+    }
+
+    private boolean isMonsterCommand(String command, String info) throws IOException {
+        boolean validCommand = true;
+        switch (command) {
+            case "examine" -> player.examine();
+            case "attack" -> {
+                Monster monster = player.getCurrentRoom().getMonster();
+                if(monster != null) {
+                    player.attack();
+                    monster.attack(player);
+
+                    String[] response = (input.nextLine() + " ").split(" ", 2);
+                    info = response[1].trim();
+                    command = response[0];
+                    while (true) {
+                        boolean isMonsterCommand = false;
+                        while (!isMonsterCommand) {
+                            boolean isInventoryCommand = isInventoryCommand(command, info);
+                            isMonsterCommand = command.equalsIgnoreCase("attack");
+                            if (!(isInventoryCommand || isMonsterCommand)) {
+                                System.out.println("Invalid command");
+                                response = (input.nextLine() + " ").split(" ", 2);
+                                info = response[1].trim();
+                                command = response[0];
+                            }
+                        }
+                        player.attack();
+                        monster.attack(player);
+
+                        if (monster.getHealth() <= 0) {
+                            System.out.println("You defeated " + monster.getName());
+                            System.out.println(monster.getDeathMsg());
+                            player.getCurrentRoom().setMonster(null);
+                            break;
+                        }
+                        if (player.getHealth() <= 0) {
+                            System.out.println(monster.getName() + " killed you");
+                            loadInitialEnvironment();
+                            break;
+                        }
+
+                        response = (input.nextLine() + " ").split(" ", 2);
+                        info = response[1].trim();
+                        command = response[0];
+                    }
+                }
+            }
+            case "ignore" -> player.ignore();
+            default -> validCommand = false;
+        }
+        return validCommand;
+    }
+
     /**
      * Verifies if the player enters valid game commands.
      * A list of these commands are defined in <a href="src/TextFiles/CommandsList.txt">CommandsList</a>
@@ -159,32 +269,11 @@ public class CreateGame {
         String[] response = (input.nextLine() + " ").split(" ",2);
         String info = response[1].trim();
         String command = response[0];
-        boolean validCommand = true;
-        switch (command) {
-            case "location" -> System.out.println(player.getName() + " you are in sector " + player.getCurrentRoom().getId() + ", " + player.getCurrentRoom().getName());
-            case "exits" -> System.out.println(player.getCurrentRoom().getExits());
-            case "help" -> player.help();
-            case "east", "north", "west", "south" -> player.move(command);
-            case "inventory" -> player.inventory();
-            case "explore" -> player.explore();
-            case "drop" -> player.drop(player.getInventory().findItem(info));
-            case "pickup" -> player.pickup(player.getCurrentRoom().getInventory().findItem(info));
-            case "inspect" -> player.inspect(player.getInventory().findItem(info));
-            case "drill" -> player.drill();
-            case "hint" -> player.hint();
-            case "solve" -> {
-                if(player.getCurrentRoom().getPuzzle() != null) {
-                    player.getCurrentRoom().getPuzzle().solve(info, gameMap);
-                }
-                else {
-                    System.out.println("Nothing to solve.");
-                }
-            }
-            case "trade" -> player.trade(info);
-            default -> validCommand = false;
-        }
+        boolean validCommand = isInventoryCommand(command,info) || isRoomCommand(command,info) ||
+                isMonsterCommand(command,info) || isPuzzleCommand(command,info) ||
+                isTraderCommand(command,info);
         if(!validCommand) {
-            System.out.println("Invalid command");
+            System.out.print("Invalid command");
         }
         System.out.println();
         return validCommand;

@@ -30,6 +30,8 @@ import java.util.Random;
 
 public final class Player extends Character {
 
+    private int attackDamage;
+
     /**
      * A reference storing the player's current location
      */
@@ -38,7 +40,9 @@ public final class Player extends Character {
     /**
      * The player's inventory
      */
-    private Inventory inventory = new Inventory();
+    private Inventory storedItems = new Inventory();
+
+    private Inventory equippedItems = new Inventory();
 
     /**
      * The game map
@@ -52,14 +56,31 @@ public final class Player extends Character {
         super("Captain " + name, "green", health);
         this.currentRoom = currentRoom;
         this.map = map;
+        attackDamage = 40;
+    }
+
+    public Inventory getEquippedItems() {
+        return equippedItems;
+    }
+
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
+    }
+
+    public GameMap getMap() {
+        return map;
+    }
+
+    public int getAttackDamage() {
+        return attackDamage;
     }
 
     public Room getCurrentRoom() {
         return currentRoom;
     }
 
-    public Inventory getInventory() {
-        return inventory;
+    public Inventory getStoredItems() {
+        return storedItems;
     }
 
     /**
@@ -95,8 +116,8 @@ public final class Player extends Character {
     public void pickup(Item item) {
         if(item != null) {
             currentRoom.getInventory().remove(item);
-            inventory.add(item);
-            System.out.println(item.getName() + inventory.getConsoleColors().textColor(" has been picked up from the room " +
+            storedItems.add(item);
+            System.out.println(item.getName() + storedItems.getConsoleColors().textColor(" has been picked up from the room " +
                     "and " + "successfully " + "added to the player inventory"));
         }
         else {
@@ -112,8 +133,8 @@ public final class Player extends Character {
     public void drop(Item item) {
         if(item != null) {
             currentRoom.getInventory().add(item);
-            inventory.remove(item);
-            System.out.println(item.getName() + inventory.getConsoleColors().colorString(" has been dropped successfully from the player inventory and placed in ") + currentRoom.getName());
+            storedItems.remove(item);
+            System.out.println(item.getName() + storedItems.getConsoleColors().colorString(" has been dropped successfully from the player inventory and placed in ") + currentRoom.getName());
         }
         else {
             System.out.println("Item not found");
@@ -126,7 +147,7 @@ public final class Player extends Character {
      */
     public void inspect(Item item) {
         if(item != null) {
-            inventory.inspect(item);
+            storedItems.inspect(item);
         }
         else {
             System.out.println("Nothing to inspect");
@@ -134,27 +155,47 @@ public final class Player extends Character {
     }
 
     public void equip(Item item) {
-
     }
 
     public void unequip(Item item) {
+    }
 
+    public void stats() {
     }
 
     public void heal(Item item) {
-
     }
 
-    public void repair(Item item) {
-
+    public void examine() {
+        Monster monster = currentRoom.getMonster();
+        if(monster != null) {
+                System.out.println(monster.getDescription());
+                System.out.println("Health: " + monster.getHealth());
+                System.out.println("Attack Damage: " + monster.getAttackDmg());
+            System.out.println("Attack or Ignore");
+        }
+        else {
+            System.out.println("There isn't a monster in " + currentRoom.getName());
+        }
     }
 
     public void attack() {
-
+        Monster monster = currentRoom.getMonster();
+        if(monster != null) {
+            monster.loseHealth(attackDamage);
+            System.out.println("You dealt " + attackDamage + " damage");
+            System.out.println(monster.getName() + "'s Health: " + monster.getHealth() + "\n");
+        }
     }
 
     public void ignore() {
-
+        Monster monster = currentRoom.getMonster();
+        if(monster != null) {
+            currentRoom.setMonster(null);
+        }
+        else {
+            System.out.println("There isn't a monster to ignore in " + currentRoom.getName());
+        }
     }
 
     /**
@@ -183,12 +224,12 @@ public final class Player extends Character {
      * @see Inventory#showInventory()
      */
     public void inventory() {
-        if(inventory.getItems().isEmpty()) {
-            System.out.println(inventory.getConsoleColors().colorString("You didn't pickup any items yet"));
+        if(storedItems.getItems().isEmpty()) {
+            System.out.println(storedItems.getConsoleColors().colorString("You didn't pickup any items yet"));
         }
         else {
             System.out.println(getName() + "'s Storage:");
-            inventory.showInventory();
+            storedItems.showInventory();
         }
     }
 
@@ -222,9 +263,9 @@ public final class Player extends Character {
      */
     public void trade(String item) {
         if(currentRoom.getTrader() != null) {
-            Item input = inventory.findItem(item);
+            Item input = storedItems.findItem(item);
             Item output = currentRoom.getTrader().trade(input);
-            inventory.remove(input);
+            storedItems.remove(input);
             currentRoom.getInventory().add(output);
         }
     }

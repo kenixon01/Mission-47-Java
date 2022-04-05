@@ -8,6 +8,9 @@ public class Monster extends Character {
 
     private int attackDmg;
 
+    private int initialDamage;
+
+
     private int threshold;
 
     private String deathMsg;
@@ -22,9 +25,14 @@ public class Monster extends Character {
         super(file, "red");
         roomID = readRoomID();
         setHealth(readHP());
-        attackDmg = readAttackDamage();
         threshold = readThreshold();
+        attackDmg = readAttackDamage();
         deathMsg = readDeathMsg();
+        initialDamage = attackDmg;
+    }
+
+    public int getInitialDamage() {
+        return initialDamage;
     }
 
     public int getRoomID() {
@@ -57,6 +65,14 @@ public class Monster extends Character {
 
     public void setDeathMsg(String deathMsg) {
         this.deathMsg = deathMsg;
+    }
+
+    public void attack(Player player) {
+        if(player != null) {
+            player.loseHealth(attackDmg);
+            System.out.println(getName() + " dealt " + attackDmg + " damage");
+            System.out.println(player.getName() + "'s Health: " + player.getHealth() + "\n");
+        }
     }
 
     private int readRoomID() throws IOException {

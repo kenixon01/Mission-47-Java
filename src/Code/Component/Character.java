@@ -18,6 +18,7 @@ import java.io.IOException;
 
 public class Character extends Component {
 
+    private final int INITIAL_HEALTH;
     /**
      * This value is used to storage the character's health value.
      */
@@ -32,6 +33,7 @@ public class Character extends Component {
      */
     public Character(BufferedReader file, String textColor) throws IOException {
         super(file, textColor);
+        INITIAL_HEALTH = 0;
     }
 
     /**
@@ -44,8 +46,13 @@ public class Character extends Component {
     public Character(String name, String textColor, int health) {
         super(name, textColor);
         this.health = health;
+        INITIAL_HEALTH = health;
     }
 
+
+    public int getINITIAL_HEALTH() {
+        return INITIAL_HEALTH;
+    }
     /**
      * Allows other classes to change the character's health
      * @param health - Character's current health
@@ -67,7 +74,13 @@ public class Character extends Component {
      * @param val - Amount of health the character will lose
      */
     public void loseHealth(int val) {
-        health -= val;
+
+        if(health - val < 0) {
+            health = 0;
+        }
+        else {
+            health -= val;
+        }
     }
 
     /**
@@ -75,7 +88,12 @@ public class Character extends Component {
      * @param val - Amount of health the character will gain
      */
     public void gainHealth(int val) {
-        health += val;
+        if(health + val > INITIAL_HEALTH) {
+            health += INITIAL_HEALTH - health;
+        }
+        else {
+            health += val;
+        }
     }
 
     @Override

@@ -80,6 +80,7 @@ MONSTER NAME                Name of monster
 MONSTER DESCRIPTION         Description for monster
 ----
 ROOM ID                     Which room item is located in
+HEALTH                      Initial health
+DAMAGE THRESHOLD            Value (max 100) at which the attack damage will double
 ATTACK DAMAGE               Initial monster attack damage
-DAMAGE THRESHOLD            Value at the attack damage will double
 DEATH MESSAGE               Description that appears if the monster dies

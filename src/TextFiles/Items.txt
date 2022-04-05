@@ -13,8 +13,8 @@ a white crystal used for ship repairs
 4
 ----
 3
-Cloak
-a cloak of invisibility
+Plasma Shield
+reduces absorbed damage
 ----
 5
 0

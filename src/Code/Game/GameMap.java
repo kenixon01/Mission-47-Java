@@ -224,12 +224,6 @@ public class GameMap {
         identifyItems();
         identifyMonster();
 
-        roomsFile.close();
-        itemsFile.close();
-        puzzleFile.close();
-        traderFile.close();
-        monsterFile.close();
-
         map.firstKey().setActive(true);
     }
 

@@ -82,7 +82,7 @@ public class CreateGame {
     private Player constructPlayer() {
         System.out.println(welcome.getCharacterSelect().toString());
         String name = input.nextLine();
-        int health = 300;
+        int health = 500;
         return new Player(name,health, gameMap.getMap().firstKey(), gameMap);
     }
 
@@ -212,49 +212,50 @@ public class CreateGame {
             case "examine" -> player.examine();
             case "attack" -> {
                 Monster monster = player.getCurrentRoom().getMonster();
-//                while (monster != null) {
-//                    while ()
-//                    player.attack();
-//                    monster.attack(player);
-//                }
                 if(monster != null) {
-                    player.attack();
-                    monster.attack(player);
-
-                    String[] response = (input.nextLine() + " ").split(" ", 2);
-                    info = response[1].trim();
-                    command = response[0];
                     while (true) {
-                        boolean isMonsterCommand = false;
-                        while (!isMonsterCommand) {
-                            boolean isInventoryCommand = isInventoryCommand(command, info);
-                            isMonsterCommand = command.equalsIgnoreCase("attack");
-                            if (!(isInventoryCommand || isMonsterCommand)) {
+                        System.out.println(player.getName() + "'s Health: " + player.getHealth());
+                        System.out.println(monster.getName() + "'s Health: " + monster.getHealth());
+                        System.out.println("Attack or Heal");
+                        while (true) {
+                            String[] response = (input.nextLine() + " ").split(" ", 2);
+                            info = response[1].trim();
+                            command = response[0];
+                            if (command.equalsIgnoreCase("attack")) {
+                                player.attack();
+                                break;
+                            }
+                            else if (command.equalsIgnoreCase("heal")){
+                                player.heal(player.getStoredItems().findItem(info));
+                                break;
+                            }
+                            else {
                                 System.out.println("Invalid command");
-                                response = (input.nextLine() + " ").split(" ", 2);
-                                info = response[1].trim();
-                                command = response[0];
                             }
                         }
-                        player.attack();
-                        monster.attack(player);
-
                         if (monster.getHealth() <= 0) {
                             System.out.println("You defeated " + monster.getName());
                             System.out.println(monster.getDeathMsg());
                             player.getCurrentRoom().setMonster(null);
                             break;
                         }
+                        monster.attack(player);
                         if (player.getHealth() <= 0) {
                             System.out.println(monster.getName() + " killed you");
-                            loadInitialEnvironment();
-                            break;
+                            System.out.println("Exit or Restart");
+                            String response = input.nextLine();
+                            if(response.equalsIgnoreCase("restart")) {
+                                loadInitialEnvironment();
+                                break;
+                            }
+                            else if(response.equalsIgnoreCase("exit")) {
+                                System.exit(0);
+                            }
                         }
 
-                        response = (input.nextLine() + " ").split(" ", 2);
-                        info = response[1].trim();
-                        command = response[0];
+
                     }
+
                 }
             }
             case "ignore" -> player.ignore();

@@ -58,8 +58,12 @@ public final class Player extends Character {
         super("Captain " + name, "green", health);
         this.currentRoom = currentRoom;
         this.map = map;
-        attackDamage = 40;
+        attackDamage = 60;
         resistance = 0;
+    }
+
+    public double getResistance() {
+        return resistance;
     }
 
     public Inventory getEquippedItems() {
@@ -185,8 +189,8 @@ public final class Player extends Character {
 
     public void stats() {
         System.out.println(getName() + "'s Statistics:");
-        System.out.printf("%-14s%d\n%-14s%d%s\n%-14s%1.0f%s","Health:",getHealth(),
-                "Attack Damage:",attackDamage,"%",
+        System.out.printf("%-14s%d\n%-14s%d\n%-14s%1.0f%s","Health:",getHealth(),
+                "Attack Damage:",attackDamage,
                 "Resistance:",resistance,"%");
     }
 

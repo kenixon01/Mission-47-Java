@@ -38,7 +38,7 @@ SOUTH
 EAST
 WEST 1
 ----
-4 3
+4
 ----
 4
 Caldoni I

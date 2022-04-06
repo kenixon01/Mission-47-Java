@@ -69,7 +69,11 @@ public class Monster extends Character {
 
     public void attack(Player player) {
         if(player != null) {
-            player.loseHealth(attackDmg);
+            int dmg = attackDmg;
+            if(player.getResistance() > 0) {
+                dmg = (int) (attackDmg * (1 - player.getResistance()));
+            }
+            player.loseHealth(dmg);
         }
     }
 

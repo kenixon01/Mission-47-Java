@@ -58,7 +58,7 @@ public class Trader extends Character {
         if(item != null) {
             Item output = inventory.findItem(item.getTradeOutputID());
             System.out.println(getConsoleColors().textColor("You got yourself a deal."));
-            System.out.println(item.getName() + " has been dropped.");
+            System.out.println(output.getName() + " has been dropped.");
             return output;
         }
         System.out.println(getConsoleColors().textColor("Are you trying to cheat me?"));

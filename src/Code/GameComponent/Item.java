@@ -1,4 +1,10 @@
+<<<<<<< HEAD:src/Code/GameComponent/Item.java
+package Code.Component;
+
+import Code.Component.Component;
+=======
 package Code.GameComponent;
+>>>>>>> main:src/Code/Component/Item/Item.java
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,6 +39,12 @@ public class Item extends GameComponent {
      */
     private int tradeOutputID;
 
+    private int health;
+
+    private double damage;
+
+    private double resistance;
+
     /**
      * Creates a GameComponent object using a file and text color
      *
@@ -41,9 +53,12 @@ public class Item extends GameComponent {
      */
     public Item(BufferedReader file) throws IOException {
         super(file, "yellow");
-        info = readDescription().replaceAll("\n","").split("",2);
-        roomID = readRoomID();
-        tradeOutputID = readTradeOutput();
+        roomID = Integer.parseInt(getFile().readLine());
+        tradeOutputID = Integer.parseInt(getFile().readLine());
+        health = Integer.parseInt(getFile().readLine());
+        damage = Double.parseDouble(getFile().readLine()) / 100;
+        resistance = Double.parseDouble(getFile().readLine()) / 100;
+        getFile().readLine();
     }
 
     public int getHp() {
@@ -66,25 +81,31 @@ public class Item extends GameComponent {
         return roomID;
     }
 
-    public int getTradeOutputID() {
-        return tradeOutputID;
+    public int getHealth() {
+        return health;
     }
 
-    /**
-     * This method will read the roomID from a text file and return the value
-     * @return - Room ID
-     */
-    private int readRoomID() {
-        return Integer.parseInt(info[0]);
+    public double getDamage() {
+        return damage;
     }
 
+<<<<<<< HEAD:src/Code/GameComponent/Item.java
+    public double getResistance() {
+        return resistance;
+=======
     /**
      * This method will read the trade output from a text file and return the value
      * @return - Trade Output ID
      */
     private int readTradeOutput() throws IOException {
         return Integer.parseInt(info[0]);
+>>>>>>> main:src/Code/Component/Item/Item.java
     }
+
+    public int getTradeOutputID() {
+        return tradeOutputID;
+    }
+
 
     @Override
     public String toString() {

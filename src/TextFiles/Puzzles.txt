@@ -14,7 +14,11 @@ right up
 ----
 2
 Collect White Crystal
+<<<<<<< HEAD
+These asteroids are rich in white crystals.
+=======
 These asteroids are rich in white crystals, perfect for reinforcing ship integrity.
+>>>>>>> main
 ----
 Use the drill command to activate your ship's drilling laser on the asteroids to collect white crystals
 

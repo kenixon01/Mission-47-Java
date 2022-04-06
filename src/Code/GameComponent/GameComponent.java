@@ -24,7 +24,11 @@ import java.util.Arrays;
  * @version 1.2
  * @author Khamilah Nixon
  */
+<<<<<<< HEAD:src/Code/Component/Component.java
+public class Component {
+=======
 public class GameComponent {
+>>>>>>> main:src/Code/GameComponent/GameComponent.java
 
     /**
      * The component's name

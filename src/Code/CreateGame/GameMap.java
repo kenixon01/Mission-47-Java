@@ -1,9 +1,13 @@
 package Code.CreateGame;
 
+<<<<<<< HEAD:src/Code/Game/GameMap.java
+import Code.Component.*;
+=======
 import Code.GameComponent.Characters.Trader;
 import Code.GameComponent.Item;
 import Code.GameComponent.Puzzle;
 import Code.GameComponent.Room;
+>>>>>>> main:src/Code/CreateGame/GameMap.java
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -23,7 +27,7 @@ public class GameMap {
     /**
      * A reference to room IDs and associated room
      */
-    private TreeMap<Integer, Room> roomList = new TreeMap<>(); //room id and associated room
+    private TreeMap<Integer, Room> roomList = new TreeMap<>();
 
     /**
      * A reference to item IDs and associated items
@@ -40,10 +44,12 @@ public class GameMap {
      */
     private HashMap<Integer, Puzzle> puzzleList = new HashMap<>();
 
+    private HashMap<Integer, Monster> monsterList = new HashMap<>();
+
     /**
      * A reference to rooms and their connections
      */
-    private TreeMap<Room, ArrayList<Room>> map = new TreeMap<>(); //room and its connections
+    private TreeMap<Room, ArrayList<Room>> map = new TreeMap<>();
 
     /**
      * A reference to the file containing room information
@@ -65,15 +71,18 @@ public class GameMap {
      */
     private BufferedReader traderFile;
 
+    private BufferedReader monsterFile;
+
     /**
      * Creates a game map object
      */
     public GameMap() {
         try {
-            roomsFile = new BufferedReader(new FileReader("src/UserManual/TextFiles/Rooms.txt"));
-            itemsFile = new BufferedReader(new FileReader("src/UserManual/TextFiles/Items.txt"));
-            puzzleFile = new BufferedReader(new FileReader("src/UserManual/TextFiles/Puzzles.txt"));
-            traderFile = new BufferedReader(new FileReader("src/UserManual/TextFiles/Trader.txt"));
+            roomsFile = new BufferedReader(new FileReader("src/TextFiles/Rooms.txt"));
+            itemsFile = new BufferedReader(new FileReader("src/TextFiles/Items.txt"));
+            puzzleFile = new BufferedReader(new FileReader("src/TextFiles/Puzzles.txt"));
+            traderFile = new BufferedReader(new FileReader("src/TextFiles/Trader.txt"));
+            monsterFile = new BufferedReader(new FileReader("src/TextFiles/Monsters.txt"));
         } catch (IOException ie) {
             ie.printStackTrace();
         }
@@ -180,6 +189,17 @@ public class GameMap {
         }
     }
 
+    private void identifyMonster() throws IOException {
+        while (monsterFile.ready()) {
+            Monster monster = new Monster(monsterFile);
+            int id = monster.getRoomID();
+            if(roomList.get(id) != null) {
+                roomList.get(id).setMonster(monster);
+                monsterList.put(monster.getId(), monster);
+            }
+        }
+    }
+
     /**
      * Creates connection between all rooms
      */
@@ -209,11 +229,7 @@ public class GameMap {
         identifyPuzzles();
         identifyTrader();
         identifyItems();
-
-        roomsFile.close();
-        itemsFile.close();
-        puzzleFile.close();
-        traderFile.close();
+        identifyMonster();
 
         map.firstKey().setActive(true);
     }

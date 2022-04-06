@@ -1,6 +1,12 @@
+<<<<<<< HEAD:src/Code/GameComponent/Puzzle.java
+package Code.Component;
+
+import Code.Game.GameMap;
+=======
 package Code.GameComponent;
 
 import Code.CreateGame.GameMap;
+>>>>>>> main:src/Code/Component/Puzzle/Puzzle.java
 
 import java.io.BufferedReader;
 import java.io.IOException;

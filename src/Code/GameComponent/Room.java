@@ -1,7 +1,11 @@
+<<<<<<< HEAD:src/Code/GameComponent/Room.java
+package Code.Component;
+=======
 package Code.GameComponent;
 
 import Code.GameComponent.Characters.Monster;
 import Code.GameComponent.Characters.Trader;
+>>>>>>> main:src/Code/Component/Room/Room.java
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -92,6 +96,14 @@ public class Room extends GameComponent implements Comparable<Room> {
 
     public void setTrader(Trader trader) {
         this.trader = trader;
+    }
+
+    public Monster getMonster() {
+        return monster;
+    }
+
+    public void setMonster(Monster monster) {
+        this.monster = monster;
     }
 
     public boolean isLocked() {

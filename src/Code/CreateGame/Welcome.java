@@ -54,7 +54,7 @@ public final class Welcome {
      */
     public Welcome() {
         try {
-            file = new BufferedReader(new FileReader("src/UserManual/TextFiles/GlobalMessages.txt"));
+            file = new BufferedReader(new FileReader("src/TextFiles/GlobalMessages.txt"));
             loadStartMessages();
             file.close();
         } catch (IOException e) {

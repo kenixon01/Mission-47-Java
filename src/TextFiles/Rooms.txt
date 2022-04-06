@@ -24,12 +24,12 @@ SOUTH
 EAST 1
 WEST
 ----
-5
+5 8
 ----
 3
 Solar Storm
 You have encountered a solar storm front approaching your port quarter.  The storm front is affecting your ship's
-integrity.
+sensors.
 To your west lies the lunar base and north lies Caldoni VII.
 ----
 UNLOCKED

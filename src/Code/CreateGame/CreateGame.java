@@ -1,6 +1,13 @@
-package Code.Game;
+package Code.CreateGame;
 
+<<<<<<< HEAD:src/Code/Game/CreateGame.java
 import Code.Component.*;
+=======
+import Code.GameComponent.Characters.Trader;
+import Code.GameComponent.Characters.Player;
+import Code.GameComponent.Puzzle;
+import Code.GameComponent.Room;
+>>>>>>> main:src/Code/CreateGame/CreateGame.java
 
 import java.io.IOException;
 import java.util.Random;
@@ -149,7 +156,22 @@ public class CreateGame {
         }
     }
 
+<<<<<<< HEAD:src/Code/Game/CreateGame.java
     private boolean isRoomCommand(String command, String info) throws IOException {
+=======
+    /**
+     * Verifies if the player enters valid game commands.
+     * A list of these commands are defined in <a href="../UserManual/TextFiles/CommandsList.txt">CommandsList</a>
+     * @return - a boolean that verifies if the player entered a valid command
+     * @throws IOException - If any of the game files do not exist
+     * @see Room
+     * @see Player
+     */
+    private boolean verifyCommands() throws IOException {
+        String[] response = (input.nextLine() + " ").split(" ",2);
+        String info = response[1].trim();
+        String command = response[0];
+>>>>>>> main:src/Code/CreateGame/CreateGame.java
         boolean validCommand = true;
         switch (command) {
             case "location" -> System.out.println(player.getName() + " you are in sector " + player.getCurrentRoom().getId() + ", " + player.getCurrentRoom().getName());
@@ -201,6 +223,12 @@ public class CreateGame {
                     System.out.println("Nothing to solve.");
                 }
             }
+<<<<<<< HEAD:src/Code/Game/CreateGame.java
+=======
+            case "trade" -> {
+                player.trade(info);
+            }
+>>>>>>> main:src/Code/CreateGame/CreateGame.java
             default -> validCommand = false;
         }
         return validCommand;

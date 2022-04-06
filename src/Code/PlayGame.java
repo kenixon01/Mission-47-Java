@@ -1,6 +1,6 @@
 package Code;
 
-import Code.Game.CreateGame;
+import Code.CreateGame.CreateGame;
 
 /**
  * Creates a game and loads all game data

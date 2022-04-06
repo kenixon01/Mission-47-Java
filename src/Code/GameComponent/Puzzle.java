@@ -1,6 +1,12 @@
+<<<<<<< HEAD:src/Code/GameComponent/Puzzle.java
 package Code.Component;
 
 import Code.Game.GameMap;
+=======
+package Code.GameComponent;
+
+import Code.CreateGame.GameMap;
+>>>>>>> main:src/Code/Component/Puzzle/Puzzle.java
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +18,7 @@ import java.util.Arrays;
  * @version 1.0
  * @author Khamilah Nixon
  */
-public class Puzzle extends Component {
+public class Puzzle extends GameComponent {
 
     /**
      * A value to determine if the puzzle is solved
@@ -60,9 +66,9 @@ public class Puzzle extends Component {
     private Inventory inventory = new Inventory();
 
     /**
-     * Creates a Component object using a file and text color
+     * Creates a GameComponent object using a file and text color
      *
-     * @param file      - The Component's associated file
+     * @param file      - The GameComponent's associated file
      * @throws IOException - If the file does not exist
      */
     public Puzzle(BufferedReader file) throws IOException {
@@ -179,8 +185,8 @@ public class Puzzle extends Component {
                     Room room = map.getRoomList().get(item.getRoomID());
                     inventory.remove(item);
                     room.getInventory().add(item);
-                    System.out.println(getConsoleColors().textColor("You solved the puzzle correctly!"));
-                    System.out.println(item.getName() + getConsoleColors().textColor(" available in ") + room.getName());
+                    System.out.println(getConsoleColors().colorString("You solved the puzzle correctly!"));
+                    System.out.println(item.getName() + getConsoleColors().colorString(" available in ") + room.getName());
                     isSolved = true;
                     if(unlockRoomID != null) {
                         for(int id : unlockRoomID) {

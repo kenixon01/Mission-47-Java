@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/Code/GameComponent/Inventory.java
 package Code.Component;
+=======
+package Code.GameComponent;
+>>>>>>> main:src/Code/Inventory/Inventory.java
 import Code.Utilities.ConsoleColors;
 
 import java.util.*;
@@ -85,7 +89,9 @@ public class Inventory {
         if(item != null) {
             System.out.println(item.getDescription());
         }
-        System.out.println("Description not available");
+        else {
+            System.out.println("Description not available");
+        }
     }
 
     /**
@@ -113,7 +119,11 @@ public class Inventory {
      * @param id - Desired item id to find
      * @return - Located item
      */
+<<<<<<< HEAD:src/Code/GameComponent/Inventory.java
     public Item findItem(int id) {
+=======
+   public Item findItem(int id) {
+>>>>>>> main:src/Code/Inventory/Inventory.java
         return items.get(id).get(0);
     }
 
@@ -142,6 +152,7 @@ public class Inventory {
         System.out.println(consoleColors.colorString(msg.isEmpty() ? "No visible items..." : String.valueOf(msg)));
     }
 
+<<<<<<< HEAD:src/Code/GameComponent/Inventory.java
     public static void transferItem(Inventory initial, Inventory target, Item item) {
         initial.remove(item);
         target.add(item);
@@ -155,6 +166,8 @@ public class Inventory {
     private Iterator<Map.Entry<Integer, ArrayList<Item>>> iterator() {
         return items.entrySet().iterator();
     }
+=======
+>>>>>>> main:src/Code/Inventory/Inventory.java
     @Override
     public String toString() {
         return "Inventory{" +

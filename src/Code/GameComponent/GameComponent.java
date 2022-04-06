@@ -1,4 +1,4 @@
-package Code.Component;
+package Code.GameComponent;
 
 import Code.Utilities.ConsoleColors;
 
@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.Arrays;
 
 /**
- * The Component class defines the attributes and functions of any object in the game.  All objects in the game
- * must inherit from Component.  Objects must have the following components (Players will only hold the first
+ * The GameComponent class defines the attributes and functions of any object in the game.  All objects in the game
+ * must inherit from GameComponent.  Objects must have the following components (Players will only hold the first
  * two bullet points:
  * <blockquote>
  *     <ul>
@@ -24,7 +24,11 @@ import java.util.Arrays;
  * @version 1.2
  * @author Khamilah Nixon
  */
+<<<<<<< HEAD:src/Code/Component/Component.java
 public class Component {
+=======
+public class GameComponent {
+>>>>>>> main:src/Code/GameComponent/GameComponent.java
 
     /**
      * The component's name
@@ -54,13 +58,13 @@ public class Component {
     private BufferedReader file;
 
     /**
-     * Creates a Component object using a file, name, and text color
+     * Creates a GameComponent object using a file, name, and text color
      * @param file - The file containing all the component's information
      * @param name - The component's name
      * @param textColor - The component's text color when information from that component is printed on the console
      * @throws IOException - If {@link #file} does not exist
      */
-    public Component(BufferedReader file, String name, String textColor) throws IOException {
+    public GameComponent(BufferedReader file, String name, String textColor) throws IOException {
         consoleColors = new ConsoleColors();
         consoleColors.setTextColor(textColor);
         this.file = file;
@@ -70,23 +74,23 @@ public class Component {
     }
 
     /**
-     * Creates a Component object using a name and text color
+     * Creates a GameComponent object using a name and text color
      * @param name - The component's name
      * @param textColor - The component's text color when information from that component is printed on the console
      */
-    public Component(String name, String textColor) {
+    public GameComponent(String name, String textColor) {
         consoleColors = new ConsoleColors();
         consoleColors.setTextColor(textColor);
         this.name = name;
     }
 
     /**
-     * Creates a Component object using a file and text color
-     * @param file - The Component's associated file
+     * Creates a GameComponent object using a file and text color
+     * @param file - The GameComponent's associated file
      * @param textColor - The component's text color when information from that component is printed on the console
      * @throws IOException - If the file does not exist
      */
-    public Component(BufferedReader file, String textColor) throws IOException {
+    public GameComponent(BufferedReader file, String textColor) throws IOException {
         consoleColors = new ConsoleColors();
         consoleColors.setTextColor(textColor);
         this.file = file;
@@ -95,24 +99,24 @@ public class Component {
         this.description = readDescription();
     }
     /**
-     * Returns the Component's description
-     * @return a String of the Component's description
+     * Returns the GameComponent's description
+     * @return a String of the GameComponent's description
      */
     public String getDescription() {
-        return consoleColors.textColor(description);
+        return consoleColors.colorString(description);
     }
 
     /**
-     * Returns the Component's name
-     * @return a String of the Component's name
+     * Returns the GameComponent's name
+     * @return a String of the GameComponent's name
      */
     public String getName() {
-        return consoleColors.textColor(name);
+        return consoleColors.colorString(name);
     }
 
     /**
-     * Returns the Component's ID
-     * @return a String of the Component's ID
+     * Returns the GameComponent's ID
+     * @return a String of the GameComponent's ID
      */
     public int getId() {
         return id;
@@ -127,8 +131,8 @@ public class Component {
     }
 
     /**
-     * Returns the Component's ID once read from a text file
-     * @return a String of the Component's ID
+     * Returns the GameComponent's ID once read from a text file
+     * @return a String of the GameComponent's ID
      * @throws IOException - If the file does not exist
      */
     public int readID() throws IOException {
@@ -136,8 +140,8 @@ public class Component {
     }
 
     /**
-     * Returns the Component's name once read from a text file
-     * @return a String of the Component's name
+     * Returns the GameComponent's name once read from a text file
+     * @return a String of the GameComponent's name
      * @throws IOException - If the file does not exist
      */
     public String readName() throws IOException {
@@ -145,8 +149,8 @@ public class Component {
     }
 
     /**
-     * Returns the Component's description once read from a text file
-     * @return a String of the Component's description
+     * Returns the GameComponent's description once read from a text file
+     * @return a String of the GameComponent's description
      * @throws IOException - If the file does not exist
      */
     public String readDescription() throws IOException {
@@ -161,7 +165,7 @@ public class Component {
 
     @Override
     public String toString() {
-        return "Component{" +
+        return "GameComponent{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", consoleColors=" + consoleColors +

@@ -1,4 +1,11 @@
+<<<<<<< HEAD:src/Code/GameComponent/Room.java
 package Code.Component;
+=======
+package Code.GameComponent;
+
+import Code.GameComponent.Characters.Monster;
+import Code.GameComponent.Characters.Trader;
+>>>>>>> main:src/Code/Component/Room/Room.java
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +19,7 @@ import java.util.ArrayList;
  * @since 1.0
  * @version 2.1
  */
-public class Room extends Component implements Comparable<Room> {
+public class Room extends GameComponent implements Comparable<Room> {
 
     /**
      * Room inventory
@@ -108,7 +115,7 @@ public class Room extends Component implements Comparable<Room> {
     }
 
     public String getExits() {
-        return getConsoleColors().textColor(exits);
+        return getConsoleColors().colorString(exits);
     }
 
     public Puzzle getPuzzle() {
@@ -146,7 +153,7 @@ public class Room extends Component implements Comparable<Room> {
      */
     public String roomData() {
         String text = getDescription() + (visited ? "\nYOU ALREADY VISITED THIS SECTOR\n" : "");
-        return getConsoleColors().textColor(text);
+        return getConsoleColors().colorString(text);
     }
 
     /**

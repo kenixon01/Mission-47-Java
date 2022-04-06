@@ -134,11 +134,11 @@ An online user manual is also provided via this link:
 </a>
 
 ## Visuals
-<img alt="Splash" src="UserManual/Website/Images/SplashScreen.png" width="50%"/><br>
-<img alt="GamePlay7" src="UserManual/Website/Images/GamePlay7.png" width="50%"/><br>
-<img alt="GamePlay8" src="UserManual/Website/Images/GamePlay8.png" width="50%"/><br>
-<img alt="GamePlay9" src="UserManual/Website/Images/GamePlay9.png" width="50%"/><br>
-<img alt="GamePlay10" src="UserManual/Website/Images/GamePlay10.png" width="50%"/><br>
-<img alt="GamePlay11" src="UserManual/Website/Images/GamePlay11.png" width="50%"/><br>
-<img alt="PuzzleCompletion" src="UserManual/Website/Images/PuzzleCompletion.png" width="50%"/><br>
-<img alt="Trader" src="UserManual/Website/Images/Trader.png" width="50%"/><br>
+<img alt="Splash" src="UserManual/Images/SplashScreen.png" width="50%"/><br>
+<img alt="GamePlay7" src="UserManual/Images/GamePlay7.png" width="50%"/><br>
+<img alt="GamePlay8" src="UserManual/Images/GamePlay8.png" width="50%"/><br>
+<img alt="GamePlay9" src="UserManual/Images/GamePlay9.png" width="50%"/><br>
+<img alt="GamePlay10" src="UserManual/Images/GamePlay10.png" width="50%"/><br>
+<img alt="GamePlay11" src="UserManual/Images/GamePlay11.png" width="50%"/><br>
+<img alt="PuzzleCompletion" src="UserManual/Images/PuzzleCompletion.png" width="50%"/><br>
+<img alt="Trader" src="UserManual/Images/Trader.png" width="50%"/><br>

@@ -1,6 +1,16 @@
+<<<<<<< HEAD:src/Code/GameComponent/Player.java
 package Code.Component;
 
 import Code.Game.GameMap;
+=======
+package Code.GameComponent.Characters;
+
+import Code.GameComponent.Item;
+import Code.GameComponent.Puzzle;
+import Code.GameComponent.Room;
+import Code.CreateGame.GameMap;
+import Code.GameComponent.Inventory;
+>>>>>>> main:src/Code/GameComponent/Characters/Player.java
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -24,15 +34,18 @@ import java.util.Random;
  *  The player class contains methods that pertain to user commands, such as moving
  *  north, south, east, and west, in relation to the current room.
  * @author Khamilah Nixon
- * @version 2.0
+ * @version 2.1
  * @since 1.0
  */
 
 public final class Player extends Character {
+<<<<<<< HEAD:src/Code/GameComponent/Player.java
 
     private int attackDamage;
 
     private double resistance;
+=======
+>>>>>>> main:src/Code/GameComponent/Characters/Player.java
 
     /**
      * A reference storing the player's current location
@@ -43,6 +56,8 @@ public final class Player extends Character {
      * The player's inventory
      */
     private Inventory storedItems = new Inventory();
+
+    private Inventory equippedItems = new Inventory();
 
     private Inventory equippedItems = new Inventory();
 
@@ -94,7 +109,11 @@ public final class Player extends Character {
      * If applicable, moves the player to the room north of the current room
      * @param direction - The direction in which the player would like to move
      */
+<<<<<<< HEAD:src/Code/GameComponent/Player.java
     public void move(String direction) {
+=======
+   public void move(String direction) {
+>>>>>>> main:src/Code/GameComponent/Characters/Player.java
         Room room = null;
         switch (direction.toLowerCase()) {
             case "north" -> room = map.getMap().get(currentRoom).get(0);
@@ -122,8 +141,14 @@ public final class Player extends Character {
      */
     public void pickup(Item item) {
         if(item != null) {
+<<<<<<< HEAD:src/Code/GameComponent/Player.java
             Inventory.transferItem(currentRoom.getInventory(),storedItems,item);
             System.out.println(item.getName() + storedItems.getConsoleColors().textColor(" has been picked up from the room " +
+=======
+            currentRoom.getInventory().remove(item);
+            inventory.add(item);
+            System.out.println(item.getName() + inventory.getConsoleColors().colorString(" has been picked up from the room " +
+>>>>>>> main:src/Code/GameComponent/Characters/Player.java
                     "and " + "successfully " + "added to the player inventory"));
         }
         else {
@@ -160,6 +185,7 @@ public final class Player extends Character {
     }
 
     public void equip(Item item) {
+<<<<<<< HEAD:src/Code/GameComponent/Player.java
         if(item != null && storedItems.findItem(item.getId()) != null) {
             Inventory.transferItem(storedItems,equippedItems,item);
                 if(item.getDamage() > 0) {
@@ -170,11 +196,25 @@ public final class Player extends Character {
                     resistance /= item.getResistance();
                 }
             System.out.println("You equipped " + item.getName());
+=======
+        if(item != null) {
+            if(item.isEquippable()) {
+                equippedItems.add(item);
+                System.out.println("You equipped " + item.getName());
+            }
+            else {
+                System.out.println("You cannot equip " + item.getName());
+            }
+        }
+        else {
+            System.out.println("Item not found");
+>>>>>>> main:src/Code/GameComponent/Characters/Player.java
         }
     }
 
     public void unequip(Item item) {
         if(item != null && equippedItems.findItem(item.getId()) != null) {
+<<<<<<< HEAD:src/Code/GameComponent/Player.java
             Inventory.transferItem(equippedItems,storedItems,item);
             if (item.getDamage() > 0) {
                 attackDamage *= item.getDamage();
@@ -212,6 +252,26 @@ public final class Player extends Character {
         }
         else {
             System.out.println("There isn't a monster in " + currentRoom.getName());
+=======
+                equippedItems.remove(item);
+                System.out.println("You unequipped " + item.getName());
+        }
+        else {
+            System.out.println("Item not found");
+        }
+    }
+
+    public void heal(Item item) {
+        if(item != null && item.getHp() > 0) {
+            if(getCurrentHealth() < getMAX_HEALTH()) {
+                gainHealth(Math.min(getMAX_HEALTH() - getCurrentHealth(), item.getHp()));
+                inventory.remove(item);
+                System.out.println(item.getName() + " gave you " + item.getHp() + " HP");
+            }
+            else {
+                System.out.println("Your HP is full");
+            }
+>>>>>>> main:src/Code/GameComponent/Characters/Player.java
         }
     }
 
@@ -222,6 +282,7 @@ public final class Player extends Character {
         }
     }
 
+<<<<<<< HEAD:src/Code/GameComponent/Player.java
     public void ignore() {
         Monster monster = currentRoom.getMonster();
         if(monster != null) {
@@ -230,6 +291,10 @@ public final class Player extends Character {
         else {
             System.out.println("There isn't a monster to ignore in " + currentRoom.getName());
         }
+=======
+     public void ignore() {
+
+>>>>>>> main:src/Code/GameComponent/Characters/Player.java
     }
 
     /**
@@ -333,6 +398,24 @@ public final class Player extends Character {
             throw new FileNotFoundException(fileName + " not found at given file path: " + filePath);
         }
 
+    }
+
+    /**
+     * Displays a list of all player commands with their descriptions
+     * @throws IOException If the file does not exist
+     */
+    public void help() throws IOException {
+        String filePath = "src/UserManual/TextFiles/CommandsList.txt";
+        String fileName = filePath.substring(filePath.lastIndexOf("/"));
+        try {
+            BufferedReader buffer = new BufferedReader(new FileReader(filePath));
+            while (buffer.ready()) {
+                System.out.println(buffer.readLine());
+            }
+            buffer.close();
+        } catch (FileNotFoundException ex) {
+            throw new FileNotFoundException(fileName + " not found at given file path: " + filePath);
+        }
     }
 
     @Override

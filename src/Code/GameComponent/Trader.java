@@ -1,18 +1,31 @@
+<<<<<<< HEAD:src/Code/GameComponent/Trader.java
 package Code.Component;
+=======
+package Code.GameComponent.Characters;
+
+import Code.GameComponent.GameComponent;
+import Code.GameComponent.Item;
+import Code.GameComponent.Inventory;
+>>>>>>> main:src/Code/GameComponent/Characters/Trader.java
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+<<<<<<< HEAD:src/Code/GameComponent/Trader.java
 public class Trader extends Character {
+=======
+public class Trader extends GameComponent {
+>>>>>>> main:src/Code/GameComponent/Characters/Trader.java
 
     private Inventory inventory = new Inventory();
     private int roomID;
     private ArrayList<Integer> itemID;
+
     /**
-     * Creates a Component object using a file and text color
+     * Creates a GameComponent object using a file and text color
      *
-     * @param file      - The Component's associated file
+     * @param file - The GameComponent's associated file
      * @throws IOException - If the file does not exist
      */
     public Trader(BufferedReader file) throws IOException {
@@ -43,7 +56,7 @@ public class Trader extends Character {
 
     private ArrayList<Integer> readItemID() throws IOException {
         String line = getFile().readLine();
-        if(!line.isBlank()) {
+        if (!line.isBlank()) {
             String[] str = line.split(" ");
             ArrayList<Integer> intArray = new ArrayList<>();
             for (String s : str) {
@@ -54,14 +67,22 @@ public class Trader extends Character {
         return null;
     }
 
+<<<<<<< HEAD:src/Code/GameComponent/Trader.java
     public Item trade(Item item) {
         if(item != null) {
             Item output = inventory.findItem(item.getTradeOutputID());
             System.out.println(getConsoleColors().textColor("You got yourself a deal."));
             System.out.println(output.getName() + " has been dropped.");
+=======
+    public Item trade(Item itemInput) {
+        if (itemInput != null) {
+            Item output = inventory.findItem(itemInput.getTradeOutputID());
+            System.out.println(getConsoleColors().colorString("All trades are final."));
+            System.out.println(itemInput.getName() + " has been dropped.");
+>>>>>>> main:src/Code/GameComponent/Characters/Trader.java
             return output;
         }
-        System.out.println(getConsoleColors().textColor("Are you trying to cheat me?"));
+        System.out.println(getConsoleColors().colorString("Are you trying to cheat me?"));
         return null;
     }
 
@@ -70,6 +91,7 @@ public class Trader extends Character {
         return "Trader{" +
                 "inventory=" + inventory +
                 ", roomID=" + roomID +
+                ", itemID=" + itemID +
                 '}';
     }
 }

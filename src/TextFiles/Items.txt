@@ -4,9 +4,12 @@ a valuable radioactive isotope
 ----
 2
 3
+<<<<<<< HEAD
 0
 0
 0
+=======
+>>>>>>> main
 ----
 2
 White Crystal
@@ -14,6 +17,7 @@ a white crystal
 ----
 2
 4
+<<<<<<< HEAD
 0
 0
 0
@@ -27,6 +31,15 @@ reduces absorbed damage
 0
 0
 10
+=======
+----
+3
+Cloak
+a cloak of invisibility
+----
+5
+0
+>>>>>>> main
 ----
 4
 Small Medkit
@@ -34,9 +47,12 @@ a small medkit
 ----
 1
 5
+<<<<<<< HEAD
 60
 0
 0
+=======
+>>>>>>> main
 ----
 5
 Medium Medkit
@@ -44,9 +60,12 @@ a medium medkit
 ----
 3
 6
+<<<<<<< HEAD
 80
 0
 0
+=======
+>>>>>>> main
 ----
 6
 Large Medkit
@@ -54,9 +73,12 @@ a large medkit
 ----
 5
 7
+<<<<<<< HEAD
 100
 0
 0
+=======
+>>>>>>> main
 ----
 7
 Mega Medkit
@@ -64,6 +86,7 @@ a mega medkit
 ----
 5
 0
+<<<<<<< HEAD
 150
 0
 0
@@ -76,4 +99,12 @@ upgraded weaponry
 0
 0
 50
+=======
+----
+8
+Upgraded Turrets
+weapons
+----
+4
+>>>>>>> main
 0

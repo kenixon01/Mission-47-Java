@@ -1,6 +1,13 @@
-package Code.Game;
+package Code.CreateGame;
 
+<<<<<<< HEAD:src/Code/Game/GameMap.java
 import Code.Component.*;
+=======
+import Code.GameComponent.Characters.Trader;
+import Code.GameComponent.Item;
+import Code.GameComponent.Puzzle;
+import Code.GameComponent.Room;
+>>>>>>> main:src/Code/CreateGame/GameMap.java
 
 import java.io.BufferedReader;
 import java.io.FileReader;

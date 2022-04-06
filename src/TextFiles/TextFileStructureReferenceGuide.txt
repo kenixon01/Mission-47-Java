@@ -44,6 +44,9 @@ ITEM DESCRIPTION            Description for item
 ----
 ROOM ID                     Which room item is located in
 TRADE OUTPUT                What item can be traded for
+HP GAIN                     Amount of health the player gains upon consumption
+DAMAGE GAIN                 Amount of attack damage the player gains (percentage) upon equipping
+DAMAGE RESIST               Amount of damage resistance the player gains (percentage) upon equipping
 
 
 

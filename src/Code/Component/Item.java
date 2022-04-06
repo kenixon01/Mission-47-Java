@@ -29,6 +29,12 @@ public class Item extends Component {
      */
     private int tradeOutputID;
 
+    private int health;
+
+    private double damage;
+
+    private double resistance;
+
     /**
      * Creates a Component object using a file and text color
      *
@@ -37,34 +43,34 @@ public class Item extends Component {
      */
     public Item(BufferedReader file) throws IOException {
         super(file, "yellow");
-        info = readDescription().replaceAll("\n","").split("",2);
-        roomID = readRoomID();
-        tradeOutputID = readTradeOutput();
+        roomID = Integer.parseInt(getFile().readLine());
+        tradeOutputID = Integer.parseInt(getFile().readLine());
+        health = Integer.parseInt(getFile().readLine());
+        damage = Double.parseDouble(getFile().readLine()) / 100;
+        resistance = Double.parseDouble(getFile().readLine()) / 100;
+        getFile().readLine();
     }
 
     public int getRoomID() {
         return roomID;
     }
 
+    public int getHealth() {
+        return health;
+    }
+
+    public double getDamage() {
+        return damage;
+    }
+
+    public double getResistance() {
+        return resistance;
+    }
+
     public int getTradeOutputID() {
         return tradeOutputID;
     }
 
-    /**
-     * This method will read the roomID from a text file and return the value
-     * @return - Room ID
-     */
-    private int readRoomID() {
-        return Integer.parseInt(info[0]);
-    }
-
-    /**
-     * This method will read the trade output from a text file and return the value
-     * @return - Trade Output ID
-     */
-    private int readTradeOutput() {
-        return Integer.parseInt(info[1]);
-    }
 
     @Override
     public String toString() {

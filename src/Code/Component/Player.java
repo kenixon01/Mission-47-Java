@@ -32,6 +32,8 @@ public final class Player extends Character {
 
     private int attackDamage;
 
+    private double resistance;
+
     /**
      * A reference storing the player's current location
      */
@@ -57,6 +59,7 @@ public final class Player extends Character {
         this.currentRoom = currentRoom;
         this.map = map;
         attackDamage = 40;
+        resistance = 0;
     }
 
     public Inventory getEquippedItems() {
@@ -115,8 +118,7 @@ public final class Player extends Character {
      */
     public void pickup(Item item) {
         if(item != null) {
-            currentRoom.getInventory().remove(item);
-            storedItems.add(item);
+            Inventory.transferItem(currentRoom.getInventory(),storedItems,item);
             System.out.println(item.getName() + storedItems.getConsoleColors().textColor(" has been picked up from the room " +
                     "and " + "successfully " + "added to the player inventory"));
         }
@@ -132,8 +134,7 @@ public final class Player extends Character {
      */
     public void drop(Item item) {
         if(item != null) {
-            currentRoom.getInventory().add(item);
-            storedItems.remove(item);
+            Inventory.transferItem(storedItems,currentRoom.getInventory(),item);
             System.out.println(item.getName() + storedItems.getConsoleColors().colorString(" has been dropped successfully from the player inventory and placed in ") + currentRoom.getName());
         }
         else {
@@ -155,15 +156,46 @@ public final class Player extends Character {
     }
 
     public void equip(Item item) {
+        if(item != null && storedItems.findItem(item.getId()) != null) {
+            Inventory.transferItem(storedItems,equippedItems,item);
+                if(item.getDamage() > 0) {
+                    attackDamage /= item.getDamage();
+                }
+                if (item.getResistance() > 0) {
+                    if(resistance < 1) resistance = 1;
+                    resistance /= item.getResistance();
+                }
+            System.out.println("You equipped " + item.getName());
+        }
     }
 
     public void unequip(Item item) {
+        if(item != null && equippedItems.findItem(item.getId()) != null) {
+            Inventory.transferItem(equippedItems,storedItems,item);
+            if (item.getDamage() > 0) {
+                attackDamage *= item.getDamage();
+            }
+            if (item.getResistance() > 0) {
+                resistance *= item.getResistance();
+                if(resistance <= 1) resistance = 0;
+            }
+            System.out.println("You unequipped " + item.getName());
+        }
     }
 
     public void stats() {
+        System.out.println(getName() + "'s Statistics:");
+        System.out.printf("%-14s%d\n%-14s%d%s\n%-14s%1.0f%s","Health:",getHealth(),
+                "Attack Damage:",attackDamage,"%",
+                "Resistance:",resistance,"%");
     }
 
     public void heal(Item item) {
+        if(item != null && storedItems.findItem(item.getId()) != null && item.getHealth() > 0) {
+            Inventory.transferItem(storedItems,equippedItems,item);
+            gainHealth(item.getHealth());
+            System.out.println("You used " + item.getName() + " to heal");
+        }
     }
 
     public void examine() {
@@ -183,8 +215,6 @@ public final class Player extends Character {
         Monster monster = currentRoom.getMonster();
         if(monster != null) {
             monster.loseHealth(attackDamage);
-            System.out.println("You dealt " + attackDamage + " damage");
-            System.out.println(monster.getName() + "'s Health: " + monster.getHealth() + "\n");
         }
     }
 
@@ -265,8 +295,7 @@ public final class Player extends Character {
         if(currentRoom.getTrader() != null) {
             Item input = storedItems.findItem(item);
             Item output = currentRoom.getTrader().trade(input);
-            storedItems.remove(input);
-            currentRoom.getInventory().add(output);
+            Inventory.transferItem(storedItems,currentRoom.getInventory(),output);
         }
     }
 
@@ -301,6 +330,7 @@ public final class Player extends Character {
         }
 
     }
+
     @Override
     public String toString() {
         return "Player{" +

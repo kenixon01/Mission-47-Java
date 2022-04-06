@@ -82,7 +82,7 @@ public class CreateGame {
     private Player constructPlayer() {
         System.out.println(welcome.getCharacterSelect().toString());
         String name = input.nextLine();
-        int health = 100;
+        int health = 300;
         return new Player(name,health, gameMap.getMap().firstKey(), gameMap);
     }
 
@@ -157,6 +157,7 @@ public class CreateGame {
             case "help" -> player.help();
             case "east", "north", "west", "south" -> player.move(command);
             case "explore" -> player.explore();
+            case "stats" -> player.stats();
             default -> validCommand = false;
         }
         return validCommand;
@@ -169,7 +170,7 @@ public class CreateGame {
             case "drop" -> player.drop(player.getStoredItems().findItem(info));
             case "pickup" -> player.pickup(player.getCurrentRoom().getInventory().findItem(info));
             case "inspect" -> player.inspect(player.getStoredItems().findItem(info));
-            case "equip" -> player.equip(player.getEquippedItems().findItem(info));
+            case "equip" -> player.equip(player.getStoredItems().findItem(info));
             case "unequip" -> player.unequip(player.getEquippedItems().findItem(info));
             case "heal" -> player.heal(player.getStoredItems().findItem(info));
             default -> validCommand = false;
@@ -211,6 +212,11 @@ public class CreateGame {
             case "examine" -> player.examine();
             case "attack" -> {
                 Monster monster = player.getCurrentRoom().getMonster();
+//                while (monster != null) {
+//                    while ()
+//                    player.attack();
+//                    monster.attack(player);
+//                }
                 if(monster != null) {
                     player.attack();
                     monster.attack(player);

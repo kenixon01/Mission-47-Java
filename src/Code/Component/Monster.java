@@ -70,8 +70,6 @@ public class Monster extends Character {
     public void attack(Player player) {
         if(player != null) {
             player.loseHealth(attackDmg);
-            System.out.println(getName() + " dealt " + attackDmg + " damage");
-            System.out.println(player.getName() + "'s Health: " + player.getHealth() + "\n");
         }
     }
 

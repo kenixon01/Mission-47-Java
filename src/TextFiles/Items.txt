@@ -4,13 +4,19 @@ a valuable radioactive isotope
 ----
 2
 3
+0
+0
+0
 ----
 2
 White Crystal
-a white crystal used for ship repairs
+a white crystal
 ----
 2
 4
+0
+0
+0
 ----
 3
 Plasma Shield
@@ -18,6 +24,9 @@ reduces absorbed damage
 ----
 5
 0
+0
+0
+10
 ----
 4
 Small Medkit
@@ -25,6 +34,9 @@ a small medkit
 ----
 1
 5
+15
+0
+0
 ----
 5
 Medium Medkit
@@ -32,6 +44,9 @@ a medium medkit
 ----
 3
 6
+30
+0
+0
 ----
 6
 Large Medkit
@@ -39,6 +54,9 @@ a large medkit
 ----
 5
 7
+50
+0
+0
 ----
 7
 Mega Medkit
@@ -46,4 +64,16 @@ a mega medkit
 ----
 5
 0
+75
+0
+0
 ----
+8
+Experimental Weapons
+upgraded weaponry
+----
+3
+0
+0
+50
+0

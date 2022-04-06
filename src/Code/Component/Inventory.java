@@ -142,13 +142,9 @@ public class Inventory {
         System.out.println(consoleColors.colorString(msg.isEmpty() ? "No visible items..." : String.valueOf(msg)));
     }
 
-    /**
-     * Returns a String of text with the appended ANSI color code to change the text color
-     * @return a String with a varied color
-     */
-    public String textColor(String msg) {
-        String txtColor = consoleColors.getTextColor();
-        return txtColor + msg + txtColor;
+    public static void transferItem(Inventory initial, Inventory target, Item item) {
+        initial.remove(item);
+        target.add(item);
     }
 
     /**

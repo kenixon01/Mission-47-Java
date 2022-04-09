@@ -120,6 +120,29 @@ grid-template-columns: 200px 500px; ">
 <div>List of any number of items in trader inventory, separated by a blank space</div>
 </div>
 
+#### Monster.txt
+<div style="display: grid;
+grid-template-columns: 200px 500px; ">
+
+<div style="grid-column: 1">MONSTER ID</div>
+<div>Monster identifier</div>
+<div style="grid-column: 1">MONSTER NAME</div>
+<div>Name of monster</div>
+<div style="grid-column: 1">MONSTER DESCRIPTION</div>
+<div>Description for monster</div>
+<div style="grid-column: 1/span 2">----</div>
+<div style="grid-column: 1">ROOM ID</div>
+<div>Which room monster is located in</div>
+<div style="grid-column: 1">HEALTH</div>
+<div>Initial health</div>
+<div style="grid-column: 1">DAMAGE THRESHOLD</div>
+<div>Value (max 100) at which the attack damage will double</div>
+<div style="grid-column: 1">ATTACK DAMAGE</div>
+<div>Initial monster attack damage</div>
+<div style="grid-column: 1">DEATH MESSAGE</div>
+<div>Description that appears if the monster dies</div>
+</div>
+
 ## Installation
 No installation required.<br>
 Users can play the game using a Java IDE or their operating system's built-in terminal, such as **Windows PowerShell** 
@@ -127,18 +150,23 @@ for Windows OS users or **Terminal** for macOS users.
 
 The user can read the user manual through a text editor, such as **Notepad** or **Notepad++**.  
 An online user manual is also provided via this link: 
-<a href="http://localhost:63342/Mission_47/UserManual/Website/index.html?_ijt=iib8tgobql5jn06t9ojpmrvcs3">Click here</a>.
+<a href="http://localhost:63342/Mission-47-Java/Mission_47/UserManual/index.html?_ijt=ehhv9aoi07bb4tnl0k312jlk5c">Click here</a>.
 
 <a href="http://localhost:63342/Mission_47/UserManual/Website/index.html?_ijt=iib8tgobql5jn06t9ojpmrvcs3">
     <img alt="User Manual" src="src/UserManual/Images/website.png" width="50%"/>
 </a>
 
 ## Visuals
-<img alt="Splash" src="UserManual/Website/Images/SplashScreen.png" width="50%"/><br>
-<img alt="GamePlay7" src="UserManual/Website/Images/GamePlay7.png" width="50%"/><br>
-<img alt="GamePlay8" src="UserManual/Website/Images/GamePlay8.png" width="50%"/><br>
-<img alt="GamePlay9" src="UserManual/Website/Images/GamePlay9.png" width="50%"/><br>
-<img alt="GamePlay10" src="UserManual/Website/Images/GamePlay10.png" width="50%"/><br>
-<img alt="GamePlay11" src="UserManual/Website/Images/GamePlay11.png" width="50%"/><br>
-<img alt="PuzzleCompletion" src="UserManual/Website/Images/PuzzleCompletion.png" width="50%"/><br>
-<img alt="Trader" src="UserManual/Website/Images/Trader.png" width="50%"/><br>
+<img alt="Splash" src="src/UserManual/Images/SplashScreen.png" width="50%"/><br>
+<img alt="GamePlay7" src="src/UserManual/Images/GamePlay7.png" width="50%"/><br>
+<img alt="GamePlay8" src="src/UserManual/Images/GamePlay8.png" width="50%"/><br>
+<img alt="GamePlay9" src="src/UserManual/Images/GamePlay9.png" width="50%"/><br>
+<img alt="GamePlay10" src="src/UserManual/Images/GamePlay10.png" width="50%"/><br>
+<img alt="GamePlay11" src="src/UserManual/Images/GamePlay11.png" width="50%"/><br>
+<img alt="PuzzleCompletion" src="src/UserManual/Images/PuzzleCompletion.png" width="50%"/><br>
+<img alt="Trader" src="src/UserManual/Images/Trader.png" width="50%"/><br>
+<img alt="GamePlay12" src="src/UserManual/Images/GamePlay12.png" width="50%"/><br>
+<img alt="GamePlay13" src="src/UserManual/Images/GamePlay13.png" width="50%"/><br>
+<img alt="GamePlay14" src="src/UserManual/Images/GamePlay14.png" width="50%"/><br>
+<img alt="GamePlay15" src="src/UserManual/Images/GamePlay15.png" width="50%"/><br>
+<img alt="GamePlay16" src="src/UserManual/Images/GamePlay16.png" width="50%"/><br>

@@ -4,7 +4,6 @@ This is for the developer's reference only.
 NOTE: "----" functions as a delimiter to separate general from specific component properties.
 
 
-
 GlobalMessages.txt:
 =====================================================================================
 GAME NAME                   Name of game
@@ -18,7 +17,6 @@ PROLOGUE                    Game storyline
 SPLASH SCREEN               Allows player to enter "yes" or "no" to start the game
 ----
 ENTER NAME SCREEN           Allows player to enter their character's name
-
 
 
 Puzzles.txt:
@@ -35,7 +33,6 @@ ITEM ID                     Item identifier for reward once puzzle is complete
 LOCKEDROOMID                Rooms that the puzzle unlocks upon solving
 
 
-
 Items.txt:
 =====================================================================================
 ITEM ID                     Item identifier
@@ -47,7 +44,6 @@ TRADE OUTPUT                What item can be traded for
 HP GAIN                     Amount of health the player gains upon consumption
 DAMAGE GAIN                 Amount of attack damage the player gains (percentage) upon equipping
 DAMAGE RESIST               Amount of damage resistance the player gains (percentage) upon equipping
-
 
 
 Rooms.txt:
@@ -64,7 +60,6 @@ WEST #                      Room ID located to west of room, # is blank if there
 # # # #                     List of any number of items in room, separated by a blank space
 
 
-
 Trader.txt:
 =====================================================================================
 TRADER ID                   Trader identifier
@@ -73,7 +68,6 @@ TRADER DESCRIPTION          Description for trader
 ----
 ROOM ID                     Which room trader is located in
 # # # #                     List of any number of items in trader inventory, separated by a blank space
-
 
 
 Monster.txt:

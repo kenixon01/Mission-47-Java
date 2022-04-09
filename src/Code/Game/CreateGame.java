@@ -150,9 +150,9 @@ public class CreateGame {
                 Monster monster = player.getCurrentRoom().getMonster();
                 if(monster != null) {
                     while (true) {
-                        System.out.print(player.getNAME() + "'s Health: " + player.getHealth());
-                        System.out.print(monster.getNAME() + "'s Health: " + monster.getHealth());
-                        System.out.print("Attack or Heal");
+                        System.out.println(player.getNAME() + "'s Health: " + player.getHealth());
+                        System.out.println(monster.getNAME() + "'s Health: " + monster.getHealth());
+                        System.out.println("Attack or Heal\n");
                         while (true) {
                             String[] response = (input.nextLine() + " ").split(" ", 2);
                             info = response[1].trim();
@@ -163,6 +163,7 @@ public class CreateGame {
                             }
                             else if (command.equalsIgnoreCase("heal")){
                                 player.heal(player.getStoredItems().findItem(info));
+                                System.out.println();
                                 break;
                             }
                             else {
@@ -170,15 +171,17 @@ public class CreateGame {
                             }
                         }
                         if (monster.getHealth() <= 0) {
-                            System.out.print("You defeated " + monster.getNAME());
-                            System.out.print(monster.getDEATH_MESSAGE());
+                            System.out.println("You defeated " + monster.getNAME());
+                            if(!monster.getDEATH_MESSAGE().isEmpty()){
+                                System.out.println(monster.getDEATH_MESSAGE());
+                            };
                             player.getCurrentRoom().setMonster(null);
                             break;
                         }
                         monster.attack(player);
                         if (player.getHealth() <= 0) {
-                            System.out.print(monster.getNAME() + " killed you");
-                            System.out.print("Exit or Restart");
+                            System.out.println(monster.getNAME() + " killed you");
+                            System.out.println("Exit or Restart");
                             String response = input.nextLine();
                             if(response.equalsIgnoreCase("restart")) {
                                 loadInitialEnvironment();

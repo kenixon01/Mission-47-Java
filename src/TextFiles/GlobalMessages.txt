@@ -1,0 +1,37 @@
+Mission 47 is a text-based adventure game in which the player, a captain, must save their crew from
+execution.  To play, the player must enter valid commands to traverse each sector of space.  The "help" command will
+reveal all valid command codes.
+----
+7 months ago...
+War broke out on Tilani Prime when the emperor was assassinated by an unknown assailant.  The planet was
+then divided into 2 factions, one of which was led by a Tilani warlord, Jacoo.  An Alliance ship was sent
+to covertly investigate the emperor's assassination, in hopes to end the war before its influence spreads across the
+sector.  Jacoo seized the vessel on its course to Tilani Prime and captured all the crew members, except the captain,
+who managed to escape on a cargo ship and flee back to Alliance space to devise a plan to rescue the
+crew from execution.
+
+7 months later...
+The captain was able to convince the Alliance to allocate the resources to plan a rescue
+mission.  Your journey begins here...
+
+ENTER ANY KEY TO BEGIN
+----
+/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
+|       M    I    S    S    I    O    N      4   7      |
+/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
++       +       +       +       +       +       +       +
+    +       +       +       +       +       +       +
++       +       +       +       +       +       +       +
+    +       +     S T A R T  G A M E ?      +       +
++       +       +       +       +       +       +       +
+    +       +         Y E S     N O         +       +
++       +       +       +       +       +       +       +
+    +       +       +       +       +       +       +
+----
+    +       +       +       +       +       +       +
++       +       +       +       +       +       +       +
+    +       +       +       +       +       +       +
++       +      E N T E R  Y O U R  N A M E      +       +
+    +       +       +       +        +       +       +
++       +       +       +       +       +       +       +
+    +       +       +       +       +       +       +

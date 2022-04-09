@@ -1,0 +1,42 @@
+Website:
+http://localhost:63342/Mission-47-Java/Mission_47/UserManual/index.html?_ijt=ehhv9aoi07bb4tnl0k312jlk5c
+
+Type "help" to view a list of commands
+
+Movement Commands:
+-------------------------------------------------------------------
+north               Moves character upwards
+south               Moves character downwards
+east                Moves character rightwards
+west                Moves character leftwards
+
+Interaction Commands:
+------------------------------------------------------------------
+drop <item-name>    Player drops item in current room
+pickup <item-name>  Player picks up item in current room
+inspect <item-name> Displays item description in inventory
+trade <item-name>   Player trades item ONLY if trader in current room
+solve <item-name>   Allows player to attempt to provide a puzzle answer
+equip <item-name>   Allows player to equip an item in their inventory
+unequip <item-name> Allows player to unequip an equipped item
+heal <item-name>    Allows player to regain lost health
+
+Information Commands:
+------------------------------------------------------------------
+location            Displays current room name and number
+exits               Displays possible entryways to current room
+inventory           Displays items currently stored in player's inventory
+explore             Display current room name and inventory, trader, and active puzzles
+stats               Displays player's statistics
+
+Puzzle Commands:
+------------------------------------------------------------------
+drill               Destroys asteroids
+hint                Displays puzzle hint
+solve <input>       Allows player to attempt to provide a puzzle answer
+
+Monster Commands:
+------------------------------------------------------------------
+attack              Allows player to attack a monster
+ignore              Allows player to ignore a monster
+examine             Displays monster properties

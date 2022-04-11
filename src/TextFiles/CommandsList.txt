@@ -1,5 +1,5 @@
 Website:
-http://localhost:63342/Mission-47-Java/Mission_47/UserManual/index.html?_ijt=ehhv9aoi07bb4tnl0k312jlk5c
+http://localhost:63342/Mission-47-Java/Mission_47/Website/index.html
 
 Type "help" to view a list of commands
 

@@ -150,7 +150,7 @@ for Windows OS users or **Terminal** for macOS users.
 
 The user can read the user manual through a text editor, such as **Notepad** or **Notepad++**.  
 An online user manual is also provided via this link: 
-<a href="http://localhost:63342/Mission-47-Java/Mission_47/UserManual/index.html?_ijt=ehhv9aoi07bb4tnl0k312jlk5c">Click here</a>.
+<a href="http://localhost:63342/Mission-47-Java/Mission_47/Website/index.html">Click here</a>.
 
 <a href="http://localhost:63342/Mission_47/UserManual/Website/index.html?_ijt=iib8tgobql5jn06t9ojpmrvcs3">
     <img alt="User Manual" src="src/UserManual/Images/website.png" width="50%"/>

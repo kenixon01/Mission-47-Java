@@ -157,16 +157,16 @@ An online user manual is also provided via this link:
 </a>
 
 ## Visuals
-<img alt="Splash" src="src/UserManual/Images/SplashScreen.png" width="50%"/><br>
-<img alt="GamePlay7" src="src/UserManual/Images/GamePlay7.png" width="50%"/><br>
-<img alt="GamePlay8" src="src/UserManual/Images/GamePlay8.png" width="50%"/><br>
-<img alt="GamePlay9" src="src/UserManual/Images/GamePlay9.png" width="50%"/><br>
-<img alt="GamePlay10" src="src/UserManual/Images/GamePlay10.png" width="50%"/><br>
-<img alt="GamePlay11" src="src/UserManual/Images/GamePlay11.png" width="50%"/><br>
-<img alt="PuzzleCompletion" src="src/UserManual/Images/PuzzleCompletion.png" width="50%"/><br>
-<img alt="Trader" src="src/UserManual/Images/Trader.png" width="50%"/><br>
-<img alt="GamePlay12" src="src/UserManual/Images/GamePlay12.png" width="50%"/><br>
-<img alt="GamePlay13" src="src/UserManual/Images/GamePlay13.png" width="50%"/><br>
-<img alt="GamePlay14" src="src/UserManual/Images/GamePlay14.png" width="50%"/><br>
-<img alt="GamePlay15" src="src/UserManual/Images/GamePlay15.png" width="50%"/><br>
-<img alt="GamePlay16" src="src/UserManual/Images/GamePlay16.png" width="50%"/><br>
+<img alt="Splash" src="src/Website/Media/SplashScreen.png" width="50%"/><br>
+<img alt="GamePlay7" src="src/Website/Media/GamePlay7.png" width="50%"/><br>
+<img alt="GamePlay8" src="src/Website/Media/GamePlay8.png" width="50%"/><br>
+<img alt="GamePlay9" src="src/Website/Media/GamePlay9.png" width="50%"/><br>
+<img alt="GamePlay10" src="src/Website/Media/GamePlay10.png" width="50%"/><br>
+<img alt="GamePlay11" src="src/Website/Media/GamePlay11.png" width="50%"/><br>
+<img alt="PuzzleCompletion" src="src/Website/Media/PuzzleCompletion.png" width="50%"/><br>
+<img alt="Trader" src="src/Website/Media/Trader.png" width="50%"/><br>
+<img alt="GamePlay12" src="src/Website/Media/GamePlay12.png" width="50%"/><br>
+<img alt="GamePlay13" src="src/Website/Media/GamePlay13.png" width="50%"/><br>
+<img alt="GamePlay14" src="src/Website/Media/GamePlay14.png" width="50%"/><br>
+<img alt="GamePlay15" src="src/Website/Media/GamePlay15.png" width="50%"/><br>
+<img alt="GamePlay16" src="src/Website/Media/GamePlay16.png" width="50%"/><br>

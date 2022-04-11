@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Khamilah Nixon">
+    <title>Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body id="map-body">
+<div class="top-container">
+    <header>
+        <span class="logo"></span>
+        <div class="nav">
+            <a href="index.html">
+                <button>HOME</button>
+            </a>
+            <a href="map.html">
+                <button class="active-page">MAP</button>
+            </a>
+            <a href="commands.html">
+                <button>COMMANDS</button>
+            </a>
+            <a href="media.html">
+                <button>MEDIA</button>
+            </a>
+            <a href="about.html">
+                <button>ABOUT</button>
+            </a>
+        </div>
+    </header>
+    <div class="content">
+        <div class="page-title">Game Map</div>
+        <span class="page-info">This is an interactive map of all Mission 47 destinations.
+            Click each element to view information about each destination</span>
+    </div>
+</div>
+<div class="page-content">
+    <span class="sub-head">Interactive Map</span>
+    <div id="canvas">
+        <div class="node-connector" id="line1"></div>
+        <div class="node" id="Lunar Base" data-value="PUZZLE: Collect Reminum-66<br>ITEMS: small medkit" onclick="map_popup(this,'sector1-popup')">
+        </div>
+        <div class="popup" id="sector1-popup" onclick="remove_map_popup('sector1-popup')"></div>
+        <div class="node-connector" id="line2"></div>
+        <div class="node" id="Asteroid Belt" data-value="PUZZLE: Collect White Crystal<br>ITEMS: experimental weapons, medium medkit" onclick="map_popup(this,'sector2-popup')">
+        </div>
+        <div class="popup" id="sector2-popup" onclick="remove_map_popup('sector2-popup')">
+        </div>
+        <div class="node-connector" id="line3"></div>
+        <div class="node"  id="Solar Storm" data-value="ITEMS: small medkit" onclick="map_popup(this,'sector3-popup')">
+        </div>
+        <div class="popup" id="sector3-popup" onclick="remove_map_popup('sector3-popup')"></div>
+        <div class="node-connector" id="line4"></div>
+        <div class="node" id="Caldoni I" data-value="ITEMS: small medkit, mega medkit" onclick="map_popup(this,'sector4-popup')">
+        </div>
+        <div class="popup" id="sector4-popup" onclick="remove_map_popup('sector4-popup')"></div>
+        <div class="node-connector" id="line5"></div>
+        <div class="node" id="Caldoni VII" data-value="TRADER: Jecel"  onclick="map_popup(this,'sector5-popup')">
+        </div>
+        <div class="popup" id="sector5-popup" onclick="remove_map_popup('sector5-popup')"></div>
+        <div class="node-connector" id="line6"></div>
+        <div class="node" id="Tilani Patrol" data-value="MONSTER: Tilani Patrol Ship<br>ITEMS: medium medkit" onclick="map_popup(this,'sector6-popup')">
+        </div>
+        <div class="popup" id="sector6-popup" onclick="remove_map_popup('sector6-popup')"></div>
+        <div class="node-connector" id="line7"></div>
+        <div class="node" id="Tilani Prime" data-value="MONSTER: Jacoo"  onclick="map_popup(this,'sector7-popup')">
+        </div>
+        <div class="popup" id="sector7-popup" onclick="remove_map_popup('sector7-popup')"></div>
+
+    </div>
+    <div class="footer">
+        <span class="logo"></span>
+        <span>Khamilah E. Nixon</span>
+        <span>March 2022</span>
+        <span>Georgia Gwinnett College</span>
+        <span>Software Development I</span>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,309 @@
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    background: #f8f8f8;
+}
+::-webkit-scrollbar-thumb {
+    background: #7e7e7e;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+#home-img{
+    width: 100%;
+}
+#home-body{
+    background-image: url("Media/Backgorund.gif");
+}
+#about-body{
+    background-image: url("Media/earth.jpg");
+}
+#map-body{
+    background-image: url("Media/space.jpg");
+    background-color: rgba(0, 41, 216, 0.1);
+    background-blend-mode: overlay;
+}
+#commands-body{
+    background-image: url("Media/640px-NASA-WMAP-first-stars.jpg");
+}
+.contentImg{
+    width: 800px;
+    justify-self: center;
+}
+.content{
+    top: 50%;
+    color: white;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    margin: 10% 0;
+    padding: 0 15%;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-gap: 75px;
+}
+.page-content{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    color: white;
+    display: grid;
+    text-align: center;
+}
+.sub-head{
+    background-color: #6a9dd0;
+    padding: 75px 0;
+    font-size: 48px;
+    font-variant: small-caps;
+}
+.sub-head-content{
+    display: grid;
+    grid-gap: 10px;
+    font-size: 20px;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 75px 0;
+}
+.sub-head-content #buttons{
+
+}
+.footer{
+    background-color: #000000;
+    padding: 2%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 50px;
+    font-size: 18px;
+    align-items: center;
+    font-weight: bold;
+    color: #6a9dd0;
+}
+.page-button{
+    border: none;
+    padding: 20px 50px;
+    border-radius: 50px;
+    font-size: 20px;
+    color: #c5d8eb;
+    font-weight: bold;
+    background-image: radial-gradient(#6a9dd0, #4e749a);
+}
+.button-group{
+    display: grid;
+    padding: 20px;
+    grid-template-columns: auto auto auto;
+    grid-gap: 50px;
+    justify-content: center;
+    align-content: center;
+}
+.info-window{
+     background-color: rgba(16, 26, 48, 0.99);
+     width: 40%;
+     height: 0;
+     border-radius: 100% 100% 0 0;
+     position: fixed;
+     display: grid;
+     grid-template-columns: auto;
+     grid-template-rows: auto auto auto;
+     text-align: center;
+     z-index: 2;
+     left: 30%;
+     bottom: 0;
+    font-size: 24px;
+ }
+#canvas{
+    background-image: url("Media/640px-Eso1733q_Artists_impression_of_merging_neutron_stars.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
+    padding: 100px;
+}
+.node-connector{
+    border-left: 3px dashed #dbd6b2;
+    width: 1px;
+    height: 150px;
+    justify-self: center;
+    align-self: center;
+}
+.popup{
+    background-color: #000001;
+    width: 200px;
+    height: 200px;
+    display: none;
+    border-radius: 100%;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    text-align: center;
+    z-index: 5;
+    bottom: 0;
+    justify-self: center;
+    align-content: center;
+    box-shadow: 0 0 50px 5px #000000;
+    color: white;
+    font-size: 14px;
+}
+.node{
+    border-radius: 100%;
+    width: 200px;
+    justify-self: center;
+    align-self: center;
+}
+#sector1-popup{
+    grid-column: 3;
+    grid-row: 3;
+}
+#sector2-popup{
+    grid-column: 1;
+    grid-row: 3;
+}
+#sector3-popup{
+    grid-column: 5;
+    grid-row: 3;
+}
+#sector4-popup{
+    grid-column: 2;
+    grid-row: 1;
+}
+#sector5-popup{
+    grid-column: 4;
+    grid-row: 1;
+}
+#sector6-popup{
+    grid-column: 2;
+    grid-row: 5;
+}
+#sector7-popup{
+    grid-column: 4;
+    grid-row: 5;
+}
+/*between sector 3 and 4*/
+#line1{
+    transform: rotate(45deg);
+    grid-column: 1 / span 2;
+}
+/*between sector 4 and 5*/
+#line2{
+    transform: rotate(90deg);
+    grid-column: 3;
+    grid-row: 1;
+}
+/*between sector 5 and 3*/
+#line3{
+    transform: rotate(-45deg);
+    grid-column: 4 / span 2;
+}
+/*between sector 2 and 1*/
+#line4{
+    transform: rotate(90deg);
+}
+/*between sector 1 and 3*/
+#line5{
+    transform: rotate(90deg);
+}
+/*between sector 1 and 6*/
+#line6{
+    transform: rotate(45deg);
+    grid-column: 2 / span 2;
+    grid-row: 4;
+}
+/*between sector 4 and 5*/
+#line7{
+    transform: rotate(90deg);
+    grid-column: 3;
+    grid-row: 5;
+}
+#Lunar\ Base{
+    content: url("Media/Populated_Planet.png");
+    grid-column: 3;
+    grid-row: 3;
+}
+#Asteroid\ Belt{
+    content: url("Media/mars-153566_1280.png");
+    grid-column: 1;
+    grid-row: 3;
+}
+#Solar\ Storm{
+    content: url("Media/Eruptive_prominence_(captured_by_STEREO,_2010-04)_(cropped).png");
+    grid-column: 5;
+    grid-row: 3;
+}
+#Caldoni\ I{
+    content: url("Media/TerraformedMoon.png");
+    grid-column: 2;
+    grid-row: 1;
+}
+#Caldoni\ VII{
+    content: url("Media/Ice_planet.png");
+    grid-column: 4;
+    grid-row: 1;
+}
+#Tilani\ Patrol{
+    content: url("Media/Bringer_of_War_Planet.png");
+    grid-column: 2;
+    grid-row: 5;
+}
+#Tilani\ Prime{
+    content: url("Media/Lava_planet.png");
+    grid-column: 4;
+    grid-row: 5;
+}
+.page-title{
+    font-size: 64px;
+    font-variant: small-caps;
+}
+.page-info{
+    font-size: 36px;
+    margin: 0 20%;
+}
+body, html{
+    margin: 0;
+    height: 100%;
+    box-shadow: inset #000000 0 0 200px 25px;
+    font-family: Arial, serif;
+    background-color: rgba(0, 0, 0, 0.19);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body #home-body{
+    overflow: hidden;
+}
+header{
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    align-items: center;
+}
+button{
+    border: none;
+}
+footer{
+    color:white;
+}
+.active-page{
+    border-bottom: #dbd6b2 5px solid;
+}
+.top-container{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto;
+    padding: 0 20px;
+}
+.logo{
+    width: 300px;
+    content: url("Media/Title.png");
+}
+.nav{
+    justify-self: center;
+}
+.nav button{
+    padding: 30px 35px;
+    margin: 20px;
+    background-color: #00000000;
+    font-size: 20px;
+    color: #4e749a;
+    font-weight: bold;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Khamilah Nixon">
+    <title>Commands</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body id="commands-body">
+<div class="top-container">
+    <header>
+        <span class="logo"></span>
+        <div class="nav">
+            <a href="index.html">
+                <button>HOME</button>
+            </a>
+            <a href="map.html">
+                <button>MAP</button>
+            </a>
+            <a href="commands.html">
+                <button class="active-page">COMMANDS</button>
+            </a>
+            <a href="media.html">
+                <button>MEDIA</button>
+            </a>
+            <a href="about.html">
+                <button>ABOUT</button>
+            </a>
+        </div>
+    </header>
+    <div class="content">
+        <div class="page-title">Commands</div>
+        <span class="page-info">A full list of user commands to traverse Mission 47.  Click each command to
+        view more details.</span>
+
+    </div>
+</div>
+<div class="page-content">
+    <span class="sub-head">Help</span>
+    <div class="button-group">
+        <button class="page-button" id="help" value="Displays list of commands" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Help</button>
+    </div>
+    <span class="sub-head">Movement</span>
+    <div class="button-group">
+        <button class="page-button" id="north" value="Moves player upwards" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">North</button>
+        <button class="page-button" id="south" value="Moves player downwards" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">South</button>
+        <button class="page-button" id="east" value="Moves player rightwards" onclick="show_info_window(this)"  onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">East</button>
+        <button class="page-button" id="west" value="Moves player leftwards" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">West</button>
+    </div>
+    <span class="sub-head">Interaction</span>
+    <div class="button-group">
+        <button class="page-button" id="pickup" value="Player picks up item in current room" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Pickup</button>
+        <button class="page-button" id="drop" value="Player drops item in current room" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Drop</button>
+        <button class="page-button" id="inspect" value="Displays item description" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Inspect</button>
+        <button class="page-button" id="trade" value="Player trades item ONLY if trader in current room" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Trade</button>
+        <button class="page-button" id="solve" value="Allows player to attempt to provide a puzzle answer" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Solve</button>
+        <button class="page-button" id="equip" value="Allows player to equip an item in their inventory" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Equip</button>
+        <button class="page-button" id="unequip" value="Allows player to unequip an equipped item" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Unequip</button>
+        <button class="page-button" id="heal" value="Allows player to regain lost health" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Heal</button>
+    </div>
+    <span class="sub-head">Information</span>
+    <div class="button-group">
+        <button class="page-button" id="location" value="Displays current room number" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Location</button>
+        <button class="page-button" id="exits" value="Displays possible entryways to current room" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Exits</button>
+        <button class="page-button" id="inventory" value="Displays all items in player inventory" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Inventory</button>
+        <button class="page-button" id="explore" value="Displays properties of current room" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Explore</button>
+        <button class="page-button" id="stats" value="Displays player's statistics" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Stats</button>
+    </div>
+    <span class="sub-head">Puzzle</span>
+    <div class="button-group">
+        <button class="page-button" id="drill" value="Destroys asteroids" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Drill</button>
+        <button class="page-button" id="hint" value="Displays puzzle hint" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Hint</button>
+    </div>
+    <span class="sub-head">Monster</span>
+    <div class="button-group">
+        <button class="page-button" id="attack" value="Allows player to attack a monster" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Attack</button>
+        <button class="page-button" id="ignore" value="Allows player to ignore a monster" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Ignore</button>
+        <button class="page-button" id="examine" value="Displays monster properties" onclick="show_info_window(this)" onmouseup="button_press(this,get_started_button_up)" onmousedown="button_press(this,get_started_button_down)">Examine</button>
+    </div>
+    <div class="footer">
+        <span class="logo"></span>
+        <span>Khamilah E. Nixon</span>
+        <span>March 2022</span>
+        <span>Georgia Gwinnett College</span>
+        <span>Software Development I</span>
+    </div>
+    <div class="info-window" id="info">
+        <div id="close" onclick="hide_info_window()">&Cross;</div>
+        <div id="command"></div>
+        <div id="description"></div>
+    </div>
+</div>
+</body>
+</html>
